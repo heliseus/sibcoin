@@ -2,7 +2,7 @@
 
 #include "cachemap.h"
 
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

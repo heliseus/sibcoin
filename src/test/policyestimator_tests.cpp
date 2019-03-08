@@ -7,7 +7,7 @@
 #include "uint256.h"
 #include "util.h"
 
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

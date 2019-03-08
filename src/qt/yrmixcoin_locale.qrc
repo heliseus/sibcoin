@@ -1,7 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="/translations">
-        <file alias="en">locale/sibcoin_en.qm</file>
-        <file alias="ru">locale/sibcoin_ru.qm</file>
-	<file alias="de">locale/sibcoin_de.qm</file>
+        <file alias="en">locale/yrmixcoin_en.qm</file>
+        <file alias="ru">locale/yrmixcoin_ru.qm</file>
+	<file alias="de">locale/yrmixcoin_de.qm</file>
     </qresource>
 </RCC>

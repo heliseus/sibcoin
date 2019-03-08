@@ -6,7 +6,7 @@
 #include "data/proposals_valid.json.h"
 #include "data/proposals_invalid.json.h"
 
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #include <iostream>
 #include <fstream>

@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C ../../ test_sibcoin_qt
+	$(MAKE) -C ../../ test_yrmixcoin_qt
 clean:
-	$(MAKE) -C ../../ test_sibcoin_qt_clean
+	$(MAKE) -C ../../ test_yrmixcoin_qt_clean
 check:
-	$(MAKE) -C ../../ test_sibcoin_qt_check
+	$(MAKE) -C ../../ test_yrmixcoin_qt_check

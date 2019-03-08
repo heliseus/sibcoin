@@ -7,7 +7,7 @@
 #include "key.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 #include "bip39.h"
 
 #include <boost/test/unit_test.hpp>
