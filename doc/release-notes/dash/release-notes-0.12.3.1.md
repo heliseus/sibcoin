@@ -333,7 +333,7 @@ See detailed [change log](https://github.com/dashpay/dash/compare/v0.12.2.3...da
 - [`7ab5b4a28`](https://github.com/dashpay/dash/commit/7ab5b4a28) Update/optimize images (#2147)
 - [`82805a6c6`](https://github.com/dashpay/dash/commit/82805a6c6) swap out old logo for T&C logo in Qt GUI (#2081)
 - [`e9f63073d`](https://github.com/dashpay/dash/commit/e9f63073d) Warn when more than 50% of masternodes are using newer version (#1963)
-- [`653600352`](https://github.com/dashpay/dash/commit/653600352) Draw text on top of everything else in TrafficGraphWidget (#1944)
+- [`653600352`](https://github.com/dashpay/dash/commit/653600352) Draw text on top of everything else in TrafficGraphWidget (#9997)
 - [`118eeded6`](https://github.com/dashpay/dash/commit/118eeded6) [GUI] Create QR-code for Masternode private key (#1970)
 - [`9f2467af8`](https://github.com/dashpay/dash/commit/9f2467af8) Hide autocompleter on Enter/Return key (#1898)
 - [`e30009c31`](https://github.com/dashpay/dash/commit/e30009c31) Fix qt and fontconfig depends #1884

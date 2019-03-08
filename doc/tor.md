@@ -52,11 +52,11 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
 	HiddenServiceDir /var/lib/tor/yrmixcoin-service/
-	HiddenServicePort 1945 127.0.0.1:1945
-	HiddenServicePort 11945 127.0.0.1:11945
+	HiddenServicePort 9998 127.0.0.1:9998
+	HiddenServicePort 19998 127.0.0.1:19998
 
 The directory can be different of course, but (both) port numbers should be equal to
-your yrmixcoind's P2P listen port (1945 by default).
+your yrmixcoind's P2P listen port (9998 by default).
 
 	-externalip=X   You can tell yrmixcoin about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -91,7 +91,7 @@ as well, use `discover` instead:
 
 	./yrmixcoind ... -discover
 
-and open port 1945 on your firewall (or use -upnp).
+and open port 9998 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:

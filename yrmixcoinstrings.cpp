@@ -211,10 +211,10 @@ QT_TRANSLATE_NOOP("yrmixcoin-core", ""
 QT_TRANSLATE_NOOP("yrmixcoin-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("yrmixcoin-core", "(1945 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("yrmixcoin-core", "(9998 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("yrmixcoin-core", "(must be 1945 for mainnet)"),
+QT_TRANSLATE_NOOP("yrmixcoin-core", "(must be 9998 for mainnet)"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "<category> can be:\n"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
