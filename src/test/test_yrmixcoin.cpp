@@ -4,7 +4,7 @@
 
 #define BOOST_TEST_MODULE Yrmixcoin Test Suite
 
-#include "test_yrmix.h"
+#include "test_yrmixcoin.h"
 
 #include "chainparams.h"
 #include "consensus/consensus.h"
