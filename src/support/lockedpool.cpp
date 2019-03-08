@@ -6,7 +6,7 @@
 #include "support/cleanse.h"
 
 #if defined(HAVE_CONFIG_H)
-#include "config/yrmix-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #ifdef WIN32
