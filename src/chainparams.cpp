@@ -114,7 +114,7 @@ static void MineGenesis(CBlockHeader& genesisBlock, const uint256& powLimit, boo
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Wired 09 / Jan / 2019 Great project starts its work Now we create yrmixcoin.";
+    const char* pszTimestamp = "Wired 09 / Jan / 2019 Great project starts its work Now we create yrmix.";
     const CScript genesisOutputScript = CScript() << ParseHex("046b7eb39ad92e8addaf7d707ba28825916278928e19e7467d185509ae727cc401c46706a12db89f756fa54ecf5622beb6f1fa51009db23479816b1f9370f2f757") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
