@@ -1,7 +1,7 @@
-TOR SUPPORT IN SIBCOIN
+TOR SUPPORT IN YRMIXCOIN
 =======================
 
-It is possible to run Sibcoin as a Tor hidden service, and connect to such services.
+It is possible to run Yrmixcoin as a Tor hidden service, and connect to such services.
 
 The following directions assume you have a Tor proxy running on port 9050. Many
 distributions default to having a SOCKS proxy listening on port 9050, but others
@@ -10,10 +10,10 @@ See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.html.en#T
 for how to properly configure Tor.
 
 
-1. Run sibcoin behind a Tor proxy
+1. Run yrmixcoin behind a Tor proxy
 ----------------------------------
 
-The first step is running Sibcoin behind a Tor proxy. This will already make all
+The first step is running Yrmixcoin behind a Tor proxy. This will already make all
 outgoing connections be anonymized, but more is possible.
 
 	-proxy=ip:port  Set the proxy server. If SOCKS5 is selected (default), this proxy
@@ -37,31 +37,31 @@ outgoing connections be anonymized, but more is possible.
 An example how to start the client if the Tor proxy is running on local host on
 port 9050 and only allows .onion nodes to connect:
 
-	./sibcoind -onion=127.0.0.1:9050 -onlynet=tor -listen=0 -addnode=ssapp53tmftyjmjb.onion
+	./yrmixcoind -onion=127.0.0.1:9050 -onlynet=tor -listen=0 -addnode=ssapp53tmftyjmjb.onion
 
 In a typical situation, this suffices to run behind a Tor proxy:
 
-	./sibcoind -proxy=127.0.0.1:9050
+	./yrmixcoind -proxy=127.0.0.1:9050
 
 
-2. Run a sibcoin hidden server
+2. Run a yrmixcoin hidden server
 -------------------------------
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
 config file):
 
-	HiddenServiceDir /var/lib/tor/sibcoin-service/
+	HiddenServiceDir /var/lib/tor/yrmixcoin-service/
 	HiddenServicePort 1945 127.0.0.1:1945
 	HiddenServicePort 11945 127.0.0.1:11945
 
 The directory can be different of course, but (both) port numbers should be equal to
-your sibcoind's P2P listen port (1945 by default).
+your yrmixcoind's P2P listen port (1945 by default).
 
-	-externalip=X   You can tell sibcoin about its publicly reachable address using
+	-externalip=X   You can tell yrmixcoin about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
 	                configuration, you can find your onion address in
-	                /var/lib/tor/sibcoin-service/hostname. Onion addresses are given
+	                /var/lib/tor/yrmixcoin-service/hostname. Onion addresses are given
 	                preference for your node to advertize itself with, for connections
 	                coming from unroutable addresses (such as 127.0.0.1, where the
 	                Tor proxy typically runs).
@@ -78,28 +78,28 @@ your sibcoind's P2P listen port (1945 by default).
 
 In a typical situation, where you're only reachable via Tor, this should suffice:
 
-	./sibcoind -proxy=127.0.0.1:9050 -externalip=ssapp53tmftyjmjb.onion -listen
+	./yrmixcoind -proxy=127.0.0.1:9050 -externalip=ssapp53tmftyjmjb.onion -listen
 
 (obviously, replace the Onion address with your own). It should be noted that you still
 listen on all devices and another node could establish a clearnet connection, when knowing
 your address. To mitigate this, additionally bind the address of your Tor proxy:
 
-	./sibcoind ... -bind=127.0.0.1
+	./yrmixcoind ... -bind=127.0.0.1
 
 If you don't care too much about hiding your node, and want to be reachable on IPv4
 as well, use `discover` instead:
 
-	./sibcoind ... -discover
+	./yrmixcoind ... -discover
 
 and open port 1945 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
 
-	./sibcoind -onion=127.0.0.1:9050 -externalip=ssapp53tmftyjmjb.onion -discover
+	./yrmixcoind -onion=127.0.0.1:9050 -externalip=ssapp53tmftyjmjb.onion -discover
 
 
-3. List of known sibcoin Tor relays
+3. List of known yrmixcoin Tor relays
 ------------------------------------
 
 * [darkcoinie7ghp67.onion](http://darkcoinie7ghp67.onion/)
@@ -120,24 +120,24 @@ for normal IPv4/IPv6 communication, use:
 
 Starting with Tor version 0.2.7.1 it is possible, through Tor's control socket
 API, to create and destroy 'ephemeral' hidden services programmatically.
-Sibcoin Core has been updated to make use of this.
+Yrmixcoin Core has been updated to make use of this.
 
 This means that if Tor is running (and proper authentication has been configured),
-Sibcoin Core automatically creates a hidden service to listen on. This will positively 
+Yrmixcoin Core automatically creates a hidden service to listen on. This will positively 
 affect the number of available .onion nodes.
 
-This new feature is enabled by default if Sibcoin Core is listening (`-listen`), and
+This new feature is enabled by default if Yrmixcoin Core is listening (`-listen`), and
 requires a Tor connection to work. It can be explicitly disabled with `-listenonion=0`
 and, if not disabled, configured using the `-torcontrol` and `-torpassword` settings.
 To show verbose debugging information, pass `-debug=tor`.
 
 Connecting to Tor's control socket API requires one of two authentication methods to be 
-configured. For cookie authentication the user running sibcoind must have write access 
+configured. For cookie authentication the user running yrmixcoind must have write access 
 to the `CookieAuthFile` specified in Tor configuration. In some cases this is 
 preconfigured and the creation of a hidden service is automatic. If permission problems 
 are seen with `-debug=tor` they can be resolved by adding both the user running tor and 
-the user running sibcoind to the same group and setting permissions appropriately. On 
-Debian-based systems the user running sibcoind can be added to the debian-tor group, 
+the user running yrmixcoind to the same group and setting permissions appropriately. On 
+Debian-based systems the user running yrmixcoind can be added to the debian-tor group, 
 which has the appropriate permissions. An alternative authentication method is the use 
 of the `-torpassword` flag and a `hash-password` which can be enabled and specified in 
 Tor configuration.

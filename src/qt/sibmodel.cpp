@@ -1,4 +1,4 @@
-// Copyright (c) 2015 The Sibcoin developers
+// Copyright (c) 2015 The Yrmixcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,12 +17,12 @@
 const int MAX_GOODS_URLS = 2;
 
 const QString GOODS_URLS[MAX_GOODS_URLS] = {
-		"http://sibcoin.net/goods/",
+		"http://yrmixcoin.net/goods/",
 		"http://chervonec.com/goods/"
 };
 
-const QString goods_data = "sibcoin.rcc";
-const QString goods_md5 = "sibcoin.md5";
+const QString goods_data = "yrmixcoin.rcc";
+const QString goods_md5 = "yrmixcoin.md5";
 
 
 SibModel::SibModel(CSibDB *sibdb, QObject *parent) :

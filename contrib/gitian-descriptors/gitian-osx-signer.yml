@@ -1,5 +1,5 @@
 ---
-name: "sibcoin-dmg-signer"
+name: "yrmixcoin-dmg-signer"
 suites:
 - "trusty"
 architectures:
@@ -7,10 +7,10 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/ivansib/sibcoin-detached-sigs.git"
+- "url": "https://github.com/heliseus/yrmixcoin-detached-sigs.git"
   "dir": "signature"
 files:
-- "sibcoin-osx-unsigned.tar.gz"
+- "yrmixcoin-osx-unsigned.tar.gz"
 - "signature.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
@@ -28,8 +28,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=sibcoin-osx-unsigned.tar.gz
-  SIGNED=sibcoin-osx-signed.dmg
+  UNSIGNED=yrmixcoin-osx-unsigned.tar.gz
+  SIGNED=yrmixcoin-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

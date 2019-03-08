@@ -1,6 +1,6 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Copyright (c) 2014-2018 The Dash Core developers
-# Copyright (c) 2015-2016 The Sibcoin Core Developers
+# Copyright (c) 2015-2016 The Yrmixcoin Core Developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,23 +27,23 @@ BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAG
 BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBBITCOIN_SERVER=libsibcoin_server.a
-LIBBITCOIN_COMMON=libsibcoin_common.a
-LIBBITCOIN_CONSENSUS=libsibcoin_consensus.a
-LIBBITCOIN_CLI=libsibcoin_cli.a
-LIBBITCOIN_UTIL=libsibcoin_util.a
-LIBBITCOIN_CRYPTO=crypto/libsibcoin_crypto.a
-LIBBITCOINQT=qt/libsibcoinqt.a
+LIBBITCOIN_SERVER=libyrmixcoin_server.a
+LIBBITCOIN_COMMON=libyrmixcoin_common.a
+LIBBITCOIN_CONSENSUS=libyrmixcoin_consensus.a
+LIBBITCOIN_CLI=libyrmixcoin_cli.a
+LIBBITCOIN_UTIL=libyrmixcoin_util.a
+LIBBITCOIN_CRYPTO=crypto/libyrmixcoin_crypto.a
+LIBBITCOINQT=qt/libyrmixcoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libsibcoin_zmq.a
+LIBBITCOIN_ZMQ=libyrmixcoin_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libsibcoinconsensus.la
+LIBBITCOINCONSENSUS=libyrmixcoinconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libsibcoin_wallet.a
+LIBBITCOIN_WALLET=libyrmixcoin_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -68,15 +68,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += sibcoind
+  bin_PROGRAMS += yrmixcoind
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += sibcoin-cli sibcoin-tx
+  bin_PROGRAMS += yrmixcoin-cli yrmixcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# sibcoin core #
+# yrmixcoin core #
 BITCOIN_CORE_H = \
   addrdb.h \
   activemasternode.h \
@@ -205,12 +205,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libsibcoin_util_a-clientversion.$(OBJEXT): obj/build.h
+libyrmixcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between sibcoind and sibcoin-qt
-libsibcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libsibcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libsibcoin_server_a_SOURCES = \
+# server: shared between yrmixcoind and yrmixcoin-qt
+libyrmixcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libyrmixcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoin_server_a_SOURCES = \
   activemasternode.cpp \
   addrman.cpp \
   addrdb.cpp \
@@ -273,21 +273,21 @@ libsibcoin_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libsibcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libsibcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libsibcoin_zmq_a_SOURCES = \
+libyrmixcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libyrmixcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoin_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between sibcoind and sibcoin-qt, but only linked
+# wallet: shared between yrmixcoind and yrmixcoin-qt, but only linked
 # when wallet enabled
-libsibcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libsibcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libsibcoin_wallet_a_CFLAGS = -fPIC
-libsibcoin_wallet_a_SOURCES = \
+libyrmixcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libyrmixcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoin_wallet_a_CFLAGS = -fPIC
+libyrmixcoin_wallet_a_SOURCES = \
   keepass.cpp \
   privatesend-client.cpp \
   privatesend-util.cpp \
@@ -301,9 +301,9 @@ libsibcoin_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H) 
 
 # crypto primitives library
-crypto_libsibcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
-crypto_libsibcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
-crypto_libsibcoin_crypto_a_SOURCES = \
+crypto_libyrmixcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
+crypto_libyrmixcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
+crypto_libyrmixcoin_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/common.h \
@@ -322,7 +322,7 @@ crypto_libsibcoin_crypto_a_SOURCES = \
   crypto/sha512.h
 
 # x11
-crypto_libsibcoin_crypto_a_SOURCES += \
+crypto_libyrmixcoin_crypto_a_SOURCES += \
   crypto/blake.c \
   crypto/bmw.c \
   crypto/cubehash.c \
@@ -350,9 +350,9 @@ crypto_libsibcoin_crypto_a_SOURCES += \
   crypto/sph_types.h
 
 # consensus: shared between all executables that validate any consensus rules.
-libsibcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libsibcoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libsibcoin_consensus_a_SOURCES = \
+libyrmixcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libyrmixcoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoin_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -385,9 +385,9 @@ libsibcoin_consensus_a_SOURCES = \
   version.h
 
 # common: shared between dashd, and dash-qt and non-server tools
-libsibcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libsibcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libsibcoin_common_a_SOURCES = \
+libyrmixcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libyrmixcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoin_common_a_SOURCES = \
   amount.cpp \
   base58.cpp \
   bip39.cpp \
@@ -411,9 +411,9 @@ libsibcoin_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libsibcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libsibcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libsibcoin_util_a_SOURCES = \
+libyrmixcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libyrmixcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoin_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -432,30 +432,30 @@ libsibcoin_util_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libsibcoin_util_a_SOURCES += compat/glibc_compat.cpp
+libyrmixcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between sibcoin-cli and sibcoin-qt
-libsibcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libsibcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libsibcoin_cli_a_SOURCES = \
+# cli: shared between yrmixcoin-cli and yrmixcoin-qt
+libyrmixcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libyrmixcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoin_cli_a_SOURCES = \
   rpc/client.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libsibcoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libyrmixcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-sibcoind_SOURCES = sibcoind.cpp
-sibcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-sibcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sibcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+yrmixcoind_SOURCES = yrmixcoind.cpp
+yrmixcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+yrmixcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+yrmixcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sibcoind_SOURCES += sibcoind-res.rc
+yrmixcoind_SOURCES += yrmixcoind-res.rc
 endif
 
-sibcoind_LDADD = \
+yrmixcoind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -468,37 +468,37 @@ sibcoind_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-sibcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+yrmixcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# sibcoin-cli binary #
-sibcoin_cli_SOURCES = sibcoin-cli.cpp
-sibcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-sibcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sibcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# yrmixcoin-cli binary #
+yrmixcoin_cli_SOURCES = yrmixcoin-cli.cpp
+yrmixcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+yrmixcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+yrmixcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sibcoin_cli_SOURCES += sibcoin-cli-res.rc
+yrmixcoin_cli_SOURCES += yrmixcoin-cli-res.rc
 endif
 
-sibcoin_cli_LDADD = \
+yrmixcoin_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
-sibcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+yrmixcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# sibcoin-tx binary #
-sibcoin_tx_SOURCES = sibcoin-tx.cpp
-sibcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-sibcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-sibcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# yrmixcoin-tx binary #
+yrmixcoin_tx_SOURCES = yrmixcoin-tx.cpp
+yrmixcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+yrmixcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+yrmixcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sibcoin_tx_SOURCES += sibcoin-tx-res.rc
+yrmixcoin_tx_SOURCES += yrmixcoin-tx-res.rc
 endif
 
-sibcoin_tx_LDADD = \
+yrmixcoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -506,22 +506,22 @@ sibcoin_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-sibcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+yrmixcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # dashconsensus library #
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/dashconsensus.h
-libsibcoinconsensus_la_SOURCES = $(crypto_libsibcoin_crypto_a_SOURCES) $(libsibcoin_consensus_a_SOURCES)
+libyrmixcoinconsensus_la_SOURCES = $(crypto_libyrmixcoin_crypto_a_SOURCES) $(libyrmixcoin_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libsibcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libyrmixcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libsibcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libsibcoinconsensus_la_LIBADD = $(LIBSECP256K1)
-libsibcoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libsibcoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libyrmixcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libyrmixcoinconsensus_la_LIBADD = $(LIBSECP256K1)
+libyrmixcoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libyrmixcoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -552,12 +552,12 @@ DISTCLEANFILES = obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/sibcoin-config.h: config/stamp-h1
+config/yrmixcoin-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/sibcoin-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/yrmixcoin-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/sibcoin-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/sibcoin-config.h.in
+$(top_srcdir)/$(subdir)/config/yrmixcoin-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/yrmixcoin-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

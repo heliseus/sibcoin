@@ -1,15 +1,15 @@
-Sibcoin Core version 0.16.3.0
+Yrmixcoin Core version 0.16.3.0
 ==========================
 
 Release is now available from:
 
-  <https://sibcoin.money/download>
+  <https://yrmixcoin.money/download>
 
 This is a new major version release, bringing new features and other improvements.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/ivansib/sibcoin/issues>
+  <https://github.com/heliseus/yrmixcoin/issues>
 
 
 Upgrading and downgrading
@@ -117,13 +117,13 @@ Darkcoin was rebranded to Dash.
 
 Dash Core tree 0.12.0.x was a fork of Bitcoin Core tree 0.10.
 
-Sibcoin Core tree 0.15.x was a fork of Dash Core tree 0.11.
+Yrmixcoin Core tree 0.15.x was a fork of Dash Core tree 0.11.
 
-Sibcoin Core tree 0.16.0.x was a fork of Dash Core tree 0.12.0.x.
+Yrmixcoin Core tree 0.16.0.x was a fork of Dash Core tree 0.12.0.x.
 
-Sibcoin Core tree 0.16.1.x was a fork of Dash Core tree 0.12.1.x.
+Yrmixcoin Core tree 0.16.1.x was a fork of Dash Core tree 0.12.1.x.
 
-Sibcoin Core tree 0.16.2.x was a fork of Dash Core tree 0.12.1.x with some critical updates from Dash Core 0.12.2.x.
+Yrmixcoin Core tree 0.16.2.x was a fork of Dash Core tree 0.12.1.x with some critical updates from Dash Core 0.12.2.x.
 
 
 - [v0.12.3.2](https://github.com/dashpay/dash/blob/master/doc/release-notes/dash/release-notes-0.12.3.2.md) released Jul/09/2018

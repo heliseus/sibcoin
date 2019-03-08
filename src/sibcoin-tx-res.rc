@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Sibcoin"
-            VALUE "FileDescription",    "sibcoin-tx (CLI Sibcoin transaction editor utility)"
+            VALUE "CompanyName",        "Yrmixcoin"
+            VALUE "FileDescription",    "yrmixcoin-tx (CLI Yrmixcoin transaction editor utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "sibcoin-tx"
+            VALUE "InternalName",       "yrmixcoin-tx"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "sibcoin-tx.exe"
-            VALUE "ProductName",        "sibcoin-tx"
+            VALUE "OriginalFilename",   "yrmixcoin-tx.exe"
+            VALUE "ProductName",        "yrmixcoin-tx"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

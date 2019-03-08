@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Sibcoin"
-            VALUE "FileDescription",    "Sibcoin-cli (JSON-RPC client for " PACKAGE_NAME ")"
+            VALUE "CompanyName",        "Yrmixcoin"
+            VALUE "FileDescription",    "Yrmixcoin-cli (JSON-RPC client for " PACKAGE_NAME ")"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "sibcoin-cli"
+            VALUE "InternalName",       "yrmixcoin-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "sibcoin-cli.exe"
-            VALUE "ProductName",        "Sibcoin-cli"
+            VALUE "OriginalFilename",   "yrmixcoin-cli.exe"
+            VALUE "ProductName",        "Yrmixcoin-cli"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

@@ -143,7 +143,7 @@ public:
 };
 
 /**
- * Sibcoin RPC command dispatcher.
+ * Yrmixcoin RPC command dispatcher.
  */
 class CRPCTable
 {

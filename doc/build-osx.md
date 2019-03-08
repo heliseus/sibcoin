@@ -24,17 +24,17 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 
 NOTE: Building with Qt4 is still supported, however, doing so could result in a broken UI. Therefore, building with Qt5 is recommended.
 
-Build Sibcoin Core
+Build Yrmixcoin Core
 ------------------------
 
-1. Clone the Sibcoin Core source code and cd into `dash`
+1. Clone the Yrmixcoin Core source code and cd into `dash`
 
-        git clone https://github.com/ivansib/sibcoin.git
-        cd sibcoin
+        git clone https://github.com/heliseus/yrmixcoin.git
+        cd yrmixcoin
 
-2.  Build Sibcoin Core:
+2.  Build Yrmixcoin Core:
 
-    Configure and build the headless sibcoin binaries as well as the GUI (if Qt is found).
+    Configure and build the headless yrmixcoin binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -53,37 +53,37 @@ Build Sibcoin Core
 Running
 -------
 
-Sibcoin Core is now available at `./src/sibcoind`
+Yrmixcoin Core is now available at `./src/yrmixcoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=sibcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/DashCore/dash.conf"
+    echo -e "rpcuser=yrmixcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/DashCore/dash.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/SibcoinCore/dash.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/YrmixcoinCore/dash.conf"
 
-The first time you run sibcoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run yrmixcoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/SibcoinCore/debug.log
+    tail -f $HOME/Library/Application\ Support/YrmixcoinCore/debug.log
 
 Other commands:
 -------
 
-    ./src/sibcoind -daemon # Starts the sibcoin daemon.
-    ./src/sibcoin-cli --help # Outputs a list of command-line options.
-    ./src/sibcoin-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/yrmixcoind -daemon # Starts the yrmixcoin daemon.
+    ./src/yrmixcoin-cli --help # Outputs a list of command-line options.
+    ./src/yrmixcoin-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for sibcoin development.
+You can use Qt Creator as an IDE, for yrmixcoin development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "sibcoin-qt" as project name, enter src/qt as location
+4. Enter "yrmixcoin-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

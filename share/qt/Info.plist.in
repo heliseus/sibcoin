@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Sibcoin-Qt</string>
+  <string>Yrmixcoin-Qt</string>
   
   <key>CFBundleName</key>
-  <string>Sibcoin-Qt</string>
+  <string>Yrmixcoin-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.sibcoin.Sibcoin-Qt</string>
+  <string>org.yrmixcoin.Yrmixcoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.sibcoin.SibcoinPayment</string>
+      <string>org.yrmixcoin.YrmixcoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>sibcoin</string>
+        <string>yrmixcoin</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.sibcoin.paymentrequest</string>
+      <string>org.yrmixcoin.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Sibcoin payment request</string>
+      <string>Yrmixcoin payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-sibcoin-payment-request</string>
+        <string>application/x-yrmixcoin-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>sibcoinpaymentrequest</string>
+          <string>yrmixcoinpaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.sibcoin.paymentrequest</string>
+        <string>org.yrmixcoin.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

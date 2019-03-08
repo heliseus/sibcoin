@@ -1,10 +1,10 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/ivansib/sibcoin/blob/master/doc/translation_process.md#syncing-with-transifex)
+* Update translations, see [translation_process.md](https://github.com/heliseus/yrmixcoin/blob/master/doc/translation_process.md#syncing-with-transifex)
 * Update hardcoded [seeds](/contrib/seeds)
 
-* Update manpages, see [gen-manpages.sh](https://github.com/ivansib/sibcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/heliseus/yrmixcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -20,7 +20,7 @@ Before every minor and major release:
 
 Before every major release:
 
-* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Sibcoin
+* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Yrmixcoin
 * Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 
 ### First time / New builders
@@ -30,12 +30,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
-	git clone https://github.com/ivansib/gitian.sigs.git
-	git clone https://github.com/ivansib/sibcoin-detached-sigs.git
+	git clone https://github.com/heliseus/gitian.sigs.git
+	git clone https://github.com/heliseus/yrmixcoin-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/ivansib/sibcoin.git
+	git clone https://github.com/heliseus/yrmixcoin.git
 
-###Sibcoin Core maintainers/release engineers, update (commit) version in sources
+###Yrmixcoin Core maintainers/release engineers, update (commit) version in sources
 
 - `configure.ac`:
     - `_CLIENT_VERSION_MAJOR`
@@ -69,7 +69,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./sibcoin
+    pushd ./yrmixcoin
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.12.3)
     git fetch
@@ -104,7 +104,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../sibcoin/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../yrmixcoin/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -112,50 +112,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url sibcoin=/path/to/sibcoin,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url yrmixcoin=/path/to/yrmixcoin,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Sibcoin Core for Linux, Windows, and OS X:
+### Build and sign Yrmixcoin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit sibcoin=v${VERSION} ../sibcoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../sibcoin/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/sibcoin-*.tar.gz build/out/src/sibcoin-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit yrmixcoin=v${VERSION} ../yrmixcoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../yrmixcoin/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/yrmixcoin-*.tar.gz build/out/src/yrmixcoin-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit sibcoin=v${VERSION} ../sibcoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../sibcoin/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/sibcoin-*-win-unsigned.tar.gz inputs/sibcoin-win-unsigned.tar.gz
-    mv build/out/sibcoin-*.zip build/out/sibcoin-*.exe ../
+    ./bin/gbuild --memory 3000 --commit yrmixcoin=v${VERSION} ../yrmixcoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../yrmixcoin/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/yrmixcoin-*-win-unsigned.tar.gz inputs/yrmixcoin-win-unsigned.tar.gz
+    mv build/out/yrmixcoin-*.zip build/out/yrmixcoin-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit sibcoin=v${VERSION} ../sibcoin/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../sibcoin/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/sibcoin-*-osx-unsigned.tar.gz inputs/sibcoin-osx-unsigned.tar.gz
-    mv build/out/sibcoin-*.tar.gz build/out/sibcoin-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit yrmixcoin=v${VERSION} ../yrmixcoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../yrmixcoin/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/yrmixcoin-*-osx-unsigned.tar.gz inputs/yrmixcoin-osx-unsigned.tar.gz
+    mv build/out/yrmixcoin-*.tar.gz build/out/yrmixcoin-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`sibcoin-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`sibcoin-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`sibcoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `sibcoin-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`sibcoin-${VERSION}-osx-unsigned.dmg`, `sibcoin-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`yrmixcoin-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`yrmixcoin-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`yrmixcoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `yrmixcoin-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`yrmixcoin-${VERSION}-osx-unsigned.dmg`, `yrmixcoin-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import sibcoin/contrib/gitian-keys/*.pgp
+    gpg --import yrmixcoin/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../sibcoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../sibcoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../sibcoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../yrmixcoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../yrmixcoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../yrmixcoin/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -173,25 +173,25 @@ Commit your signature to gitian.sigs:
 Wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [sibcoin-detached-sigs](https://github.com/ivansib/sibcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [yrmixcoin-detached-sigs](https://github.com/heliseus/yrmixcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../sibcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../sibcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../sibcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/sibcoin-osx-signed.dmg ../sibcoin-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../yrmixcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../yrmixcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../yrmixcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/yrmixcoin-osx-signed.dmg ../yrmixcoin-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../sibcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../sibcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../sibcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/sibcoin-*win64-setup.exe ../sibcoin-${VERSION}-win64-setup.exe
-    mv build/out/sibcoin-*win32-setup.exe ../sibcoin-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../yrmixcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../yrmixcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../yrmixcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/yrmixcoin-*win64-setup.exe ../yrmixcoin-${VERSION}-win64-setup.exe
+    mv build/out/yrmixcoin-*win32-setup.exe ../yrmixcoin-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -213,23 +213,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-sibcoin-${VERSION}-aarch64-linux-gnu.tar.gz
-sibcoin-${VERSION}-arm-linux-gnueabihf.tar.gz
-sibcoin-${VERSION}-i686-pc-linux-gnu.tar.gz
-sibcoin-${VERSION}-x86_64-linux-gnu.tar.gz
-sibcoin-${VERSION}-osx64.tar.gz
-sibcoin-${VERSION}-osx.dmg
-sibcoin-${VERSION}.tar.gz
-sibcoin-${VERSION}-win32-setup.exe
-sibcoin-${VERSION}-win32.zip
-sibcoin-${VERSION}-win64-setup.exe
-sibcoin-${VERSION}-win64.zip
+yrmixcoin-${VERSION}-aarch64-linux-gnu.tar.gz
+yrmixcoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+yrmixcoin-${VERSION}-i686-pc-linux-gnu.tar.gz
+yrmixcoin-${VERSION}-x86_64-linux-gnu.tar.gz
+yrmixcoin-${VERSION}-osx64.tar.gz
+yrmixcoin-${VERSION}-osx.dmg
+yrmixcoin-${VERSION}.tar.gz
+yrmixcoin-${VERSION}-win32-setup.exe
+yrmixcoin-${VERSION}-win32.zip
+yrmixcoin-${VERSION}-win64-setup.exe
+yrmixcoin-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the sibcoin.org server*.
+space *do not upload these to the yrmixcoin.org server*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -239,20 +239,20 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the sibcoin.org server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the yrmixcoin.org server
 
-- Update sibcoin.org
+- Update yrmixcoin.org
 
 - Announce the release:
 
-  - Release on Sibcoin forum: https://www.sibcoin.org/forum/topic/official-announcements.54/
+  - Release on Yrmixcoin forum: https://www.yrmixcoin.org/forum/topic/official-announcements.54/
 
-  - Sibcoin-development mailing list
+  - Yrmixcoin-development mailing list
 
-  - Update title of #sibcoin on Freenode IRC
+  - Update title of #yrmixcoin on Freenode IRC
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/ivansib/sibcoin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/heliseus/yrmixcoin/releases/new) with a link to the archived release notes.
 
   - Celebrate

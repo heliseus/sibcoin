@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2015-2018 The Sibcoin developers
+// Copyright (c) 2015-2018 The Yrmixcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -135,7 +135,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Sibcoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Yrmixcoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -153,8 +153,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no sibcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("sibcoin"))
+    // return if URI is not valid or is no yrmixcoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("yrmixcoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -223,13 +223,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert sibcoin:// to sibcoin:
+    // Convert yrmixcoin:// to yrmixcoin:
     //
-    //    Cannot handle this later, because sibcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because yrmixcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("sibcoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("yrmixcoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "sibcoin:");
+        uri.replace(0, 10, "yrmixcoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -237,7 +237,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("sibcoin:%1").arg(info.address);
+    QString ret = QString("yrmixcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -443,7 +443,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile(GetArg("-conf", BITCOIN_CONF_FILENAME));
 
-    /* Open sibcoin.conf with the associated application */
+    /* Open yrmixcoin.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -653,15 +653,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Sibcoin Core.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Yrmixcoin Core.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Sibcoin Core (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Sibcoin Core (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Yrmixcoin Core (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Yrmixcoin Core (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Sibcoin.lnk
+    // check for Yrmixcoin.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -754,7 +754,7 @@ boost::filesystem::path static GetAutostartFilePath()
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
         return GetAutostartDir() / "sibconcore.desktop";
-    return GetAutostartDir() / strprintf("sibcoincore-%s.lnk", chain);
+    return GetAutostartDir() / strprintf("yrmixcoincore-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -793,13 +793,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a sibcoincore.desktop file to the autostart directory:
+        // Write a yrmixcoincore.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Sibcoin Core\n";
+            optionFile << "Name=Yrmixcoin Core\n";
         else
-            optionFile << strprintf("Name=Sibcoin Core (%s)\n", chain);
+            optionFile << strprintf("Name=Yrmixcoin Core (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -820,7 +820,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the sibcoin app
+    // loop through the list of startup items and try to find the yrmixcoin app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -865,7 +865,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add sibcoin app to startup item list
+        // add yrmixcoin app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

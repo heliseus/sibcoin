@@ -2,9 +2,9 @@ Masternode config
 =======================
 
 The multi masternode config allows to control multiple masternodes from a single wallet. The wallet needs to have a valid collaral output of 1000 coins for each masternode. To use this, place a file named masternode.conf in the data directory of your install:
- * Windows: %APPDATA%\Sibcoin\
- * Mac OS: ~/Library/Application Support/Sibcoin/
- * Unix/Linux: ~/.sibcoin/
+ * Windows: %APPDATA%\Yrmixcoin\
+ * Mac OS: ~/Library/Application Support/Yrmixcoin/
+ * Unix/Linux: ~/.yrmixcoin/
 
 `masternode.conf` is a space separated text file. Each line consists of an alias, IP address followed by port, masternode private key, collateral output transaction id and collateral output index.
 
