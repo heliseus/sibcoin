@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2014-2017 The Sibcoin developers
+// Copyright (c) 2014-2017 The Yrmixcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -39,7 +39,7 @@ enum NumConnections {
     CONNECTIONS_ALL  = (CONNECTIONS_IN | CONNECTIONS_OUT),
 };
 
-/** Model for Sibcoin network client. */
+/** Model for Yrmixcoin network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT

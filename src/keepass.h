@@ -11,7 +11,7 @@
 
 class CKeePassIntegrator;
 
-static const unsigned int DEFAULT_KEEPASS_HTTP_PORT     = 19455;
+static const unsigned int DEFAULT_KEEPASS_HTTP_PORT     = 19955;
 
 extern CKeePassIntegrator keePassInt;
 

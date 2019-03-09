@@ -1,22 +1,22 @@
-Sibcoin 0.16.x BETA
+Yrmixcoin 0.16.x BETA
 ====================
 
 Copyright (c) 2009-2016 Bitcoin Developers
 Copyright (c) 2014-2017 Dash Core Developers
-Copyright (c) 2015-2017 Sibcoin Developers
+Copyright (c) 2015-2017 Yrmixcoin Developers
 
-This is the official reference wallet for Sibcoin digital currency and comprises the backbone of the Sibcoin peer-to-peer network. You can [download Sibcoin Core](https://www.sibcoin.org/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Yrmixcoin digital currency and comprises the backbone of the Yrmixcoin peer-to-peer network. You can [download Yrmixcoin Core](https://www.yrmixcoin.org/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Sibcoin on your native platform.
+The following are some helpful notes on how to run Yrmixcoin on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/sibcoin-qt` (GUI) or
-- `bin/sibcoind` (headless)
+- `bin/yrmixcoin-qt` (GUI) or
+- `bin/yrmixcoind` (headless)
 
 ### Windows
 
@@ -24,7 +24,7 @@ Unpack the files into a directory, and then run dash-qt.exe.
 
 ### OS X
 
-Drag Sibcoin-Qt to your applications folder, and then run Sibcoin-Qt.
+Drag Yrmixcoin-Qt to your applications folder, and then run Yrmixcoin-Qt.
 
 ### Need Help?
 
@@ -35,7 +35,7 @@ for help and more information.
 
 Building
 ---------------------
-The following are developer notes on how to build Sibcoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Yrmixcoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -45,7 +45,7 @@ The following are developer notes on how to build Sibcoin Core on your native pl
 
 Development
 ---------------------
-The Sibcoin Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Yrmixcoin Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Release Notes](release-notes.md)

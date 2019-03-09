@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2015-2018 The SibCoin developers
+// Copyright (c) 2015-2018 The YrmixCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #include "bitcoingui.h"
@@ -305,7 +305,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/" + theme + "/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a Sibcoin address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a Yrmixcoin address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -320,7 +320,7 @@ void BitcoinGUI::createActions()
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
     receiveCoinsAction = new QAction(QIcon(":/icons/" + theme + "/receiving_addresses"), tr("&Receive"), this);
-    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and sibcoin: URIs)"));
+    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and yrmixcoin: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -346,7 +346,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(historyAction);
 
     goodsAction = new QAction(QIcon(":/icons/shopping_cart"), tr("&Goods&&&Services"), this);
-    goodsAction->setStatusTip(tr("Show links to services that accept sibcoins"));
+    goodsAction->setStatusTip(tr("Show links to services that accept yrmixcoins"));
     goodsAction->setToolTip(goodsAction->statusTip());
     goodsAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -396,7 +396,7 @@ void BitcoinGUI::createActions()
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
     aboutAction = new QAction(QIcon(":/icons/" + theme + "/about"), tr("&About %1").arg(tr(PACKAGE_NAME)), this);
-    aboutAction->setStatusTip(tr("Show information about Sibcoin Core"));
+    aboutAction->setStatusTip(tr("Show information about Yrmixcoin Core"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutAction->setEnabled(false);
     aboutQtAction = new QAction(QIcon(":/icons/" + theme + "/about_qt"), tr("About &Qt"), this);
@@ -420,9 +420,9 @@ void BitcoinGUI::createActions()
     unlockWalletAction->setToolTip(tr("Unlock wallet"));
     lockWalletAction = new QAction(tr("&Lock Wallet"), this);
     signMessageAction = new QAction(QIcon(":/icons/" + theme + "/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your Sibcoin addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your Yrmixcoin addresses to prove you own them"));
     verifyMessageAction = new QAction(QIcon(":/icons/" + theme + "/transaction_0"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Sibcoin addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Yrmixcoin addresses"));
 
     openInfoAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Information"), this);
     openInfoAction->setStatusTip(tr("Show diagnostic information"));
@@ -453,28 +453,28 @@ void BitcoinGUI::createActions()
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
 #ifdef ENABLE_PRINTSUPPORT
-    genAndPrintAddressesAction = new QAction(QIcon(":/icons/cash_icon"), tr("&Print sibcoins..."), this);
+    genAndPrintAddressesAction = new QAction(QIcon(":/icons/cash_icon"), tr("&Print yrmixcoins..."), this);
     genAndPrintAddressesAction->setIconVisibleInMenu(true);
     genAndPrintAddressesAction->setStatusTip(tr("Generate address and print"));
 #endif
 
-    loadFromPaperAction = new QAction(QIcon(":/icons/import"), tr("&Load sibcoins..."), this);
+    loadFromPaperAction = new QAction(QIcon(":/icons/import"), tr("&Load yrmixcoins..."), this);
     loadFromPaperAction->setIconVisibleInMenu(true);
-    loadFromPaperAction->setStatusTip(tr("Load sibcoins from paper"));
+    loadFromPaperAction->setStatusTip(tr("Load yrmixcoins from paper"));
     
     openAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_DirOpenIcon), tr("Open &URI..."), this);
-    openAction->setStatusTip(tr("Open a sibcoin: URI or payment request"));
+    openAction->setStatusTip(tr("Open a yrmixcoin: URI or payment request"));
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
-    showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible Sibcoin command-line options").arg(tr(PACKAGE_NAME)));
+    showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible Yrmixcoin command-line options").arg(tr(PACKAGE_NAME)));
 
     showPrivateSendHelpAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&PrivateSend information"), this);
     showPrivateSendHelpAction->setMenuRole(QAction::NoRole);
     showPrivateSendHelpAction->setStatusTip(tr("Show the PrivateSend basic information"));
 
-    showHelpSibcoinAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Howto"), this);
-    showHelpSibcoinAction->setStatusTip(tr("How to use Sibcoins"));
+    showHelpYrmixcoinAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Howto"), this);
+    showHelpYrmixcoinAction->setStatusTip(tr("How to use Yrmixcoins"));
 
     
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
@@ -503,7 +503,7 @@ void BitcoinGUI::createActions()
     // prevents an open debug window from becoming stuck/unusable on client shutdown
     connect(quitAction, SIGNAL(triggered()), rpcConsole, SLOT(hide()));
 
-    connect(showHelpSibcoinAction, SIGNAL(triggered()), this, SLOT(showHelpSibcoinClicked()));
+    connect(showHelpYrmixcoinAction, SIGNAL(triggered()), this, SLOT(showHelpYrmixcoinClicked()));
 #ifdef ENABLE_WALLET
     if(walletFrame)
     {
@@ -586,7 +586,7 @@ void BitcoinGUI::createMenuBar()
     }
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
-    help->addAction(showHelpSibcoinAction);
+    help->addAction(showHelpYrmixcoinAction);
     help->addAction(showHelpMessageAction);
     help->addAction(showPrivateSendHelpAction);
     help->addSeparator();
@@ -915,9 +915,9 @@ void BitcoinGUI::showPrivateSendHelpClicked()
     dlg.exec();
 }
 
-void BitcoinGUI::showHelpSibcoinClicked()
+void BitcoinGUI::showHelpYrmixcoinClicked()
 {
-    HelpSibcoinDialog *help = new HelpSibcoinDialog(this);
+    HelpYrmixcoinDialog *help = new HelpYrmixcoinDialog(this);
     help->setAttribute(Qt::WA_DeleteOnClose);
     help->show();
 }
@@ -998,7 +998,7 @@ void BitcoinGUI::updateNetworkState()
     }
 
     if (clientModel->getNetworkActive()) {
-        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Sibcoin network", "", count));
+        labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Yrmixcoin network", "", count));
     } else {
         labelConnectionsIcon->setToolTip(tr("Network activity disabled"));
         icon = ":/icons/" + theme + "/network_disabled";
@@ -1194,7 +1194,7 @@ void BitcoinGUI::setAdditionalDataSyncProgress(double nSyncProgress)
 
 void BitcoinGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
-    QString strTitle = tr("Sibcoin Core"); // default title
+    QString strTitle = tr("Yrmixcoin Core"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -1220,7 +1220,7 @@ void BitcoinGUI::message(const QString &title, const QString &message, unsigned 
             break;
         }
     }
-    // Append title to "Sibcoin - "
+    // Append title to "Yrmixcoin - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 

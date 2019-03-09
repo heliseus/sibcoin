@@ -30,7 +30,7 @@
  * ===========================(LICENSE END)=============================
  *
  * @file    sph_gost.h
- * @author  ivan <ivansib@users.noreply.github.com> 
+ * @author  ivan <heliseus@users.noreply.github.com> 
  */
 
 #ifndef SPH_GOST_H__

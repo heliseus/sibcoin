@@ -1,4 +1,4 @@
-// Copyright (c) 2015 The Sibcoin developers
+// Copyright (c) 2015 The Yrmixcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +15,7 @@ class QNetworkAccessManager;
 class QResource;
 
 
-/** Interface to Sibcoin DB from Qt view code. */
+/** Interface to Yrmixcoin DB from Qt view code. */
 class SibModel : public QObject
 {
     Q_OBJECT

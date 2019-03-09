@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin developers
 // Copyright (c) 2014-2018 The Dash developers
-// Copyright (c) 2014-2018 The SibCoin developers
+// Copyright (c) 2014-2018 The YrmixCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #include "compat.h"
@@ -43,7 +43,7 @@
 #define DBG( x ) 
 #endif
 
-//Sibcoin only features
+//Yrmixcoin only features
 
 extern bool fMasternodeMode;
 extern bool fLiteMode;
@@ -246,7 +246,7 @@ std::string GetThreadName();
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("sibcoin-%s", name);
+    std::string s = strprintf("yrmixcoin-%s", name);
     RenameThread(s.c_str());
     try
     {

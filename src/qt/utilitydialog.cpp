@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2015-2018 The SibCoin developers
+// Copyright (c) 2015-2018 The YrmixCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #include "utilitydialog.h"
@@ -75,7 +75,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent, HelpMode helpMode) :
     } else if (helpMode == cmdline) {
         setWindowTitle(tr("Command-line options"));
         QString header = tr("Usage:") + "\n" +
-            "  sibcoin-qt [" + tr("command-line options") + "]                     " + "\n";
+            "  yrmixcoin-qt [" + tr("command-line options") + "]                     " + "\n";
         QTextCursor cursor(ui->helpMessage->document());
         cursor.insertText(version);
         cursor.insertBlock();
@@ -142,7 +142,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent, HelpMode helpMode) :
         ui->aboutMessage->setText(tr("\
 <h3>PrivateSend Basics</h3> \
 PrivateSend gives you true financial privacy by obscuring the origins of your funds. \
-All the Sibcoin in your wallet is comprised of different \"inputs\" which you can think of as separate, discrete coins.<br> \
+All the Yrmixcoin in your wallet is comprised of different \"inputs\" which you can think of as separate, discrete coins.<br> \
 PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. \
 You retain control of your money at all times.<hr> \
 <b>The PrivateSend process works like this:</b>\
@@ -164,7 +164,7 @@ your funds will already be anonymized. No additional waiting is required.</li> \
 This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. \
 It can only do this, however, if you have automatic backups enabled.<br> \
 Consequently, users who have backups disabled will also have PrivateSend disabled. <hr>\
-For more info see <a href=\"http://sibcoin.org/privatesend\">http://sibcoin.org/privatesend</a> \
+For more info see <a href=\"http://yrmixcoin.org/privatesend\">http://yrmixcoin.org/privatesend</a> \
         "));
         ui->aboutMessage->setWordWrap(true);
         ui->helpMessage->setVisible(false);
@@ -205,14 +205,14 @@ void HelpMessageDialog::on_okButton_accepted()
 
 
 /** "Help message" dialog box */
-HelpSibcoinDialog::HelpSibcoinDialog(QWidget *parent) :
+HelpYrmixcoinDialog::HelpYrmixcoinDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::HelpMessageDialog)
 {
     ui->setupUi(this);
     GUIUtil::restoreWindowGeometry("nHelpMessageDialogWindow", this->size(), this);
     
-    QString res_name = ":/html/sibcoindesc";
+    QString res_name = ":/html/yrmixcoindesc";
     QString htmlContent;
     
     QFile  htmlFile(res_name);
@@ -228,20 +228,20 @@ HelpSibcoinDialog::HelpSibcoinDialog(QWidget *parent) :
     ui->aboutMessage->setText(htmlContent);
 }
 
-HelpSibcoinDialog::~HelpSibcoinDialog()
+HelpYrmixcoinDialog::~HelpYrmixcoinDialog()
 {
     GUIUtil::saveWindowGeometry("nHelpMessageDialogWindow", this);
     delete ui;
 }
 
-void HelpSibcoinDialog::printToConsole()
+void HelpYrmixcoinDialog::printToConsole()
 {
     // On other operating systems, the expected action is to print the message to the console.
     QString strUsage = header + "\n" + coreOptions + "\n" + uiOptions + "\n";
     fprintf(stdout, "%s", strUsage.toStdString().c_str());
 }
 
-void HelpSibcoinDialog::showOrPrint()
+void HelpYrmixcoinDialog::showOrPrint()
 {
 #if defined(WIN32)
         // On Windows, show a message box, as there is no stderr/stdout in windowed applications
@@ -252,7 +252,7 @@ void HelpSibcoinDialog::showOrPrint()
 #endif
 }
 
-void HelpSibcoinDialog::on_okButton_accepted()
+void HelpYrmixcoinDialog::on_okButton_accepted()
 {
     close();
 }

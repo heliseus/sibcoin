@@ -19,13 +19,13 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Sibcoin"
-            VALUE "FileDescription",    "Sibcoin Core (OSS GUI client for Sibcoin)"
+            VALUE "CompanyName",        "Yrmixcoin"
+            VALUE "FileDescription",    "Yrmixcoin Core (OSS GUI client for Yrmixcoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "sibcoin-qt"
+            VALUE "InternalName",       "yrmixcoin-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "sibcoin-qt.exe"
+            VALUE "OriginalFilename",   "yrmixcoin-qt.exe"
             VALUE "ProductName",        PACKAGE_NAME
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END

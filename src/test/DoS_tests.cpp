@@ -14,7 +14,7 @@
 #include "util.h"
 #include "validation.h"
 
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #include <stdint.h>
 

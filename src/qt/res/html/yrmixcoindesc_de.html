@@ -41,7 +41,7 @@
 			<li><b>Все транзакции и данные в сети</b> обезличенны (не содержат персональной информации), но они всегда
 				общедоступны. В том числе общедоступна информация о количестве Червонцев на том или ином адресе и
 				история операций с ним. Посмотреть статус любой транзакции и информацию, а так же статистику сети можно
-				на сайте <a href="http://chain.sibcoin.net">chain.sibcoin.net</a>&nbsp;Все ваши транзакции доступны в
+				на сайте <a href="http://chain.yrmixcoin.net">chain.yrmixcoin.net</a>&nbsp;Все ваши транзакции доступны в
 				разделе «<b>Транзакции»</b> кошелька.
 			</li>
 			<li><b>Курс Червонца</b> – не равен и не привязан жестко ни к одной валюте мира. Курс устанавливается в
@@ -80,7 +80,7 @@
 				отслеживать транзакцию, подтверждение и т.п.?</b></span></div>
 			<div style="font-family:'Helvetica Neue';font-size:14px;">Подтверждение транзакции в сети может занимать
 				некоторое время. Иногда это несколько минут или, в редких случаях, – даже часов. Поэтому отслеживать
-				прохождение транзакции можно на сайте обозревателе сети:&nbsp;<a href="http://chain.sibcoin.net">chain.sibcoin.net</a>&nbsp;Достаточно
+				прохождение транзакции можно на сайте обозревателе сети:&nbsp;<a href="http://chain.yrmixcoin.net">chain.yrmixcoin.net</a>&nbsp;Достаточно
 				знать адрес получателя, чтобы отследить информацию.&nbsp;</div>
 			<div style="font-family:'Helvetica Neue';font-size:14px;"><b><br></b></div>
 			<div style="font-family:'Helvetica Neue';font-size:14px;"><span style="font-size: 18px;"><b>&nbsp; Как
@@ -206,7 +206,7 @@
 		<div style="font-family:'Helvetica Neue';font-size:14px;"><br></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;"><b>1. Windows</b></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;">После установки кошелька создайте ярлык на exe-файл
-			программы (sibcoin-qt.exe). Кликните на ярлык правой клавишей мыши и откройте «Свойства». В поле «Объект»
+			программы (yrmixcoin-qt.exe). Кликните на ярлык правой клавишей мыши и откройте «Свойства». В поле «Объект»
 			допишите через пробел <i>-gen.</i> Сохраните изменения и запустите ярлык. Если кошелек был запущен, то перед
 			запуском ярлыка закройте его.
 		</div>
@@ -224,23 +224,23 @@
 			«Терминалом». Запустите терминал <b>Программы &gt; Утилиты &gt; Терминал.app</b></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;">&nbsp;</div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;">Зайтиде в папку кошелька командой:&nbsp;</div>
-		<div style="font-family:'Helvetica Neue';font-size:14px;"><i>cd sibcoin</i></div>
+		<div style="font-family:'Helvetica Neue';font-size:14px;"><i>cd yrmixcoin</i></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;"><i><br></i></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;">Запустите<i>&nbsp;</i>демона:&nbsp;</div>
-		<div style="font-family:'Helvetica Neue';font-size:14px;"><i>./sibcoind -daemon</i></div>
+		<div style="font-family:'Helvetica Neue';font-size:14px;"><i>./yrmixcoind -daemon</i></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;"><br></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;">Запустите добычу:&nbsp;</div>
-		<div style="font-family:'Helvetica Neue';font-size:14px;"><i>./sibcoin-cli set generate true</i></div>
+		<div style="font-family:'Helvetica Neue';font-size:14px;"><i>./yrmixcoin-cli set generate true</i></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;"><i><br></i></div>
 		<div><span
-				style="color: rgb(20, 20, 20); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; float: none; background-color: rgb(245, 246, 247);">При первом запуске он также попросит добавить в ~/.sibcoin/sibcoin.conf параметры доступа для rpc запросов, там будет показан пример этих параметров. В конфиге также можно указать daemon=1, чтобы не указывать этот параметр при каждом запуске sibcoind.</span>
+				style="color: rgb(20, 20, 20); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; float: none; background-color: rgb(245, 246, 247);">При первом запуске он также попросит добавить в ~/.yrmixcoin/yrmixcoin.conf параметры доступа для rpc запросов, там будет показан пример этих параметров. В конфиге также можно указать daemon=1, чтобы не указывать этот параметр при каждом запуске yrmixcoind.</span>
 		</div>
 		<div><br></div>
 		<div style="font-family:'Helvetica Neue';font-size:14px;">Для остановки:&nbsp;</div>
-		<div><i>./sibcoind stop</i></div>
+		<div><i>./yrmixcoind stop</i></div>
 		<div><i><br></i></div>
 		<div>Посмотреть информацию по добыче можно командой:&nbsp;</div>
-		<div><i>./sibcoin-cli getmininginfo</i></div>
+		<div><i>./yrmixcoin-cli getmininginfo</i></div>
 		<div><i><br></i></div>
 		<div>После запуска&nbsp;вам остается ждать поступления новых червонцев при активном подключении к Интернет.
 		</div>

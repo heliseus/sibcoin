@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015 The SibCoin developers
+// Copyright (c) 2015 The YrmixCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +17,7 @@ namespace Ui {
     class GoodsDialog;
 }
 
-/** Dialog to show the HTML page with sales points that accept sibcoins */
+/** Dialog to show the HTML page with sales points that accept yrmixcoins */
 class GoodsDialog : public QDialog
 {
     Q_OBJECT

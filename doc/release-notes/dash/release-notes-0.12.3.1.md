@@ -407,7 +407,7 @@ See detailed [change log](https://github.com/dashpay/dash/compare/v0.12.2.3...da
 - [`9876207ce`](https://github.com/dashpay/dash/commit/9876207ce) Multiple devnet fixes (#1960)
 - [`e37b6c7da`](https://github.com/dashpay/dash/commit/e37b6c7da) Fix BIP147 deployment threshold parameter (#1955)
 - [`106276a3e`](https://github.com/dashpay/dash/commit/106276a3e) Adjust/fix log output (#1954)
-- [`0abd1894e`](https://github.com/dashpay/dash/commit/0abd1894e) Call CheckMnbAndUpdateMasternodeList when starting MN (#1945)
+- [`0abd1894e`](https://github.com/dashpay/dash/commit/0abd1894e) Call CheckMnbAndUpdateMasternodeList when starting MN (#9998)
 - [`e23f61822`](https://github.com/dashpay/dash/commit/e23f61822) Make TrafficGraphDataTests more general (#1943)
 - [`5b1c4d8a1`](https://github.com/dashpay/dash/commit/5b1c4d8a1) Few (mostly trivial) cleanups and fixes (#1940)
 - [`99273f63a`](https://github.com/dashpay/dash/commit/99273f63a) Use SPORK_6_NEW_SIGS to switch from signing string messages to hashes (#1937)

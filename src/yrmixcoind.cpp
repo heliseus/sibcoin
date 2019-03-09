@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2015-2018 The SibCoin developers
+// Copyright (c) 2015-2018 The YrmixCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #include "chainparams.h"
@@ -34,8 +34,8 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called Sibcoin (https://sibcoin.money/),
- * which enables instant payments to anyone, anywhere in the world. Sibcoin uses peer-to-peer technology to operate
+ * This is the developer documentation of the reference client for an experimental new digital currency called Yrmixcoin (https://yrmixcoin.money/),
+ * which enables instant payments to anyone, anywhere in the world. Yrmixcoin uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
  * The software is a community-driven open source project, released under the MIT license.
@@ -74,7 +74,7 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/sibcoin.conf are parsed in qt/sibcoin.cpp's main()
+    // If Qt is used, parameters/yrmixcoin.conf are parsed in qt/yrmixcoin.cpp's main()
     ParseParameters(argc, argv);
 
     // Process help and version before taking care about datadir
@@ -89,7 +89,7 @@ bool AppInit(int argc, char* argv[])
         else
         {
             strUsage += "\n" + _("Usage:") + "\n" +
-                  "  sibcoind [options]                     " + strprintf(_("Start %s Daemon"), _(PACKAGE_NAME)) + "\n";
+                  "  yrmixcoind [options]                     " + strprintf(_("Start %s Daemon"), _(PACKAGE_NAME)) + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -136,12 +136,12 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "sibcoin:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "yrmixcoin:"))
                 fCommandLine = true;
 
         if (fCommandLine)
         {
-            fprintf(stderr, "Error: There is no RPC client functionality in sibcoind anymore. Use the sibcoin-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in yrmixcoind anymore. Use the yrmixcoin-cli utility instead.\n");
             exit(EXIT_FAILURE);
         }
         // -server defaults to true for bitcoind but not for the GUI so do this here
@@ -167,7 +167,7 @@ bool AppInit(int argc, char* argv[])
         if (GetBoolArg("-daemon", false))
         {
 #if HAVE_DECL_DAEMON
-            fprintf(stdout, "Sibcoin server starting\n");
+            fprintf(stdout, "Yrmixcoin server starting\n");
 
             // Daemonize
             if (daemon(1, 0)) { // don't chdir (1), do close FDs (0)
@@ -206,7 +206,7 @@ int main(int argc, char* argv[])
 {
     SetupEnvironment();
 
-    // Connect sibcoind signal handlers
+    // Connect yrmixcoind signal handlers
     noui_connect();
 
     return (AppInit(argc, argv) ? EXIT_SUCCESS : EXIT_FAILURE);

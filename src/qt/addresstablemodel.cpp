@@ -339,7 +339,7 @@ QModelIndex AddressTableModel::index(int row, int column, const QModelIndex &par
 void AddressTableModel::updateEntry(const QString &address,
         const QString &label, bool isMine, const QString &purpose, int status)
 {
-    // Update address book model from Sibcoin core
+    // Update address book model from Yrmixcoin core
     priv->updateEntry(address, label, isMine, purpose, status);
 }
 
@@ -441,7 +441,7 @@ static CKeyID getKeyID(const QString &addr)
 
 	CBitcoinAddress address;
 	if (!address.SetString(strAddress))
-		throw std::runtime_error("Invalid Sibcoin address");
+		throw std::runtime_error("Invalid Yrmixcoin address");
 	CKeyID keyID;
 	address.GetKeyID(keyID);
 

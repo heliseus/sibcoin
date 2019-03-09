@@ -42,7 +42,7 @@ void DarksendConfig::clickBasic()
         model->getOptionsModel()->getDisplayUnit(), MASTERNODE_COLLATERAL_AMOUNT * COIN));
     QMessageBox::information(this, tr("PrivateSend Configuration"),
         tr(
-            "PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Sibcoin's configuration screen."
+            "PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Yrmixcoin's configuration screen."
         ).arg(strAmount)
     );
 
@@ -57,7 +57,7 @@ void DarksendConfig::clickHigh()
         model->getOptionsModel()->getDisplayUnit(), MASTERNODE_COLLATERAL_AMOUNT * COIN));
     QMessageBox::information(this, tr("PrivateSend Configuration"),
         tr(
-            "PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Sibcoin's configuration screen."
+            "PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Yrmixcoin's configuration screen."
         ).arg(strAmount)
     );
 
@@ -72,7 +72,7 @@ void DarksendConfig::clickMax()
         model->getOptionsModel()->getDisplayUnit(), MASTERNODE_COLLATERAL_AMOUNT * COIN));
     QMessageBox::information(this, tr("PrivateSend Configuration"),
         tr(
-            "PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Sibcoin's configuration screen."
+            "PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Yrmixcoin's configuration screen."
         ).arg(strAmount)
     );
 

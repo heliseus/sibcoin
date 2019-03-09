@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2015-2018 The SibCoin developers
+// Copyright (c) 2015-2018 The YrmixCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #include "util.h"
@@ -109,7 +109,7 @@ namespace boost {
 
 
 
-//Sibcoin only features
+//Yrmixcoin only features
 bool fMasternodeMode = false;
 bool fLiteMode = false;
 /**
@@ -121,8 +121,8 @@ bool fLiteMode = false;
 */
 int nWalletBackups = 10;
 
-const char * const BITCOIN_CONF_FILENAME = "sibcoin.conf";
-const char * const BITCOIN_PID_FILENAME = "sibcoind.pid";
+const char * const BITCOIN_CONF_FILENAME = "yrmixcoin.conf";
+const char * const BITCOIN_PID_FILENAME = "yrmixcoind.pid";
 
 CCriticalSection cs_args;
 std::map<std::string, std::string> mapArgs;
@@ -278,8 +278,8 @@ bool LogAcceptCategory(const char* category)
                 const std::vector<std::string>& categories = mapMultiArgs.at("-debug");
                 ptrCategory.reset(new std::set<std::string>(categories.begin(), categories.end()));
                 // thread_specific_ptr automatically deletes the set when the thread ends.
-                // "sibcoin" is a composite category enabling all Sibcoin-related debug output
-                if(ptrCategory->count(std::string("sibcoin"))) {
+                // "yrmixcoin" is a composite category enabling all Yrmixcoin-related debug output
+                if(ptrCategory->count(std::string("yrmixcoin"))) {
                     ptrCategory->insert(std::string("privatesend"));
                     ptrCategory->insert(std::string("instantsend"));
                     ptrCategory->insert(std::string("masternode"));
@@ -536,7 +536,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "sibcoin";
+    const char* pszModule = "yrmixcoin";
 #endif
     if (pex)
         return strprintf(
@@ -556,13 +556,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Sibcoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Sibcoin
-    // Mac: ~/Library/Application Support/Sibcoin
-    // Unix: ~/.sibcoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Yrmixcoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Yrmixcoin
+    // Mac: ~/Library/Application Support/Yrmixcoin
+    // Unix: ~/.yrmixcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Sibcoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Yrmixcoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -572,10 +572,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Sibcoin";
+    return pathRet / "Library/Application Support/Yrmixcoin";
 #else
     // Unix
-    return pathRet / ".sibcoin";
+    return pathRet / ".yrmixcoin";
 #endif
 #endif
 }
@@ -653,7 +653,7 @@ void ReadConfigFile(const std::string& confPath)
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good()){
-        // Create empty sibcoin.conf if it does not excist
+        // Create empty yrmixcoin.conf if it does not excist
         FILE* configFile = fopen(GetConfigFile(confPath).string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -667,7 +667,7 @@ void ReadConfigFile(const std::string& confPath)
 
         for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
         {
-            // Don't overwrite existing settings so command line settings override sibcoin.conf
+            // Don't overwrite existing settings so command line settings override yrmixcoin.conf
             std::string strKey = std::string("-") + it->string_key;
             std::string strValue = it->value[0];
             InterpretNegativeSetting(strKey, strValue);

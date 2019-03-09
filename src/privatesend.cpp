@@ -514,7 +514,7 @@ void CPrivateSend::SyncTransaction(const CTransaction& tx, const CBlockIndex *pi
 //TODO: Rename/move to core
 void ThreadCheckPrivateSend(CConnman& connman)
 {
-    if(fLiteMode) return; // disable all Sibcoin specific functionality
+    if(fLiteMode) return; // disable all Yrmixcoin specific functionality
 
     static bool fOneThread;
     if(fOneThread) return;

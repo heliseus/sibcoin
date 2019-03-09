@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between sibcoin-cli and sibcoind)
+ * CBaseChainParams defines the base parameters (shared between yrmixcoin-cli and yrmixcoind)
  * of a given instance of the Sibcon system.
  */
 class CBaseChainParams

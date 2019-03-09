@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both sibcoind and sibcoin-qt, to make it harder for attackers to
+ * for both yrmixcoind and yrmixcoin-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Sibcoin Core");
+const std::string CLIENT_NAME("Yrmixcoin Core");
 
 /**
  * Client version number

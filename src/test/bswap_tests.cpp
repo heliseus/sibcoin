@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "compat/byteswap.h"
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

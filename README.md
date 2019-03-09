@@ -1,20 +1,20 @@
-Sibcoin Core staging tree
+Yrmixcoin Core staging tree
 ===============================
 
 Copyright (c) 2009-2018 Bitcoin Core Developers
 
 Copyright (c) 2014-2018 Dash Core Developers
 
-Copyright (c) 2015-2018 Sibcoin Core Developers
+Copyright (c) 2015-2018 Yrmixcoin Core Developers
 
 
-What is Sibcoin?
+What is Yrmixcoin?
 ----------------
 
-Sibcoin is an experimental new digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. Sibcoin uses peer-to-peer technology
+Yrmixcoin is an experimental new digital currency that enables anonymous, instant
+payments to anyone, anywhere in the world. Yrmixcoin uses peer-to-peer technology
 to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. Sibcoin Core is the name of open
+are carried out collectively by the network. Yrmixcoin Core is the name of open
 source software which enables the use of this currency.
 
 
@@ -30,7 +30,7 @@ Development Process
 Building process
 -----------------
 
-**compiling Sibcoin from git**
+**compiling Yrmixcoin from git**
 
 Use the autogen script to prepare the build environment.
 
@@ -62,7 +62,7 @@ to see it.
 
 **testnet and regtest modes**
 
-Run with the -testnet option to run with "play sibcoins" on the test network, if you
+Run with the -testnet option to run with "play yrmixcoins" on the test network, if you
 are testing multi-machine code that needs to operate across the internet.
 
 If you are testing something that can run on one machine, run with the -regtest option.

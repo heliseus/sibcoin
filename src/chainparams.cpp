@@ -63,7 +63,44 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
     return genesis;
 }
+static void MineGenesis(CBlockHeader& genesisBlock, const uint256& powLimit, bool noProduction)
+{
+    if(noProduction)
+        genesisBlock.nTime = std::time(0);
+    genesisBlock.nNonce = 0;
 
+    printf("NOTE: Genesis nTime = %u \n", genesisBlock.nTime);
+    printf("WARN: Genesis nNonce (BLANK!) = %u \n", genesisBlock.nNonce);
+
+    arith_uint256 besthash;
+    memset(&besthash,0xFF,32);
+    arith_uint256 hashTarget = UintToArith256(powLimit);
+    printf("Target: %s\n", hashTarget.GetHex().c_str());
+    arith_uint256 newhash = UintToArith256(genesisBlock.GetHash());
+    while (newhash > hashTarget) {
+        genesisBlock.nNonce++;
+        if (genesisBlock.nNonce == 0) {
+            printf("NONCE WRAPPED, incrementing time\n");
+            ++genesisBlock.nTime;
+        }
+        // If nothing found after trying for a while, print status
+        if ((genesisBlock.nNonce & 0xfff) == 0)
+            printf("nonce %08X: hash = %s (target = %s)\n",
+                   genesisBlock.nNonce, newhash.ToString().c_str(),
+                   hashTarget.ToString().c_str());
+
+        if(newhash < besthash) {
+            besthash = newhash;
+            printf("New best: %s\n", newhash.GetHex().c_str());
+        }
+        newhash = UintToArith256(genesisBlock.GetHash());
+    }
+    printf("Genesis nTime = %u \n", genesisBlock.nTime);
+    printf("Genesis nNonce = %u \n", genesisBlock.nNonce);
+    printf("Genesis nBits: %08x\n", genesisBlock.nBits);
+    printf("Genesis Hash = %s\n", newhash.ToString().c_str());
+    printf("Genesis Hash Merkle Root = %s\n", genesisBlock.hashMerkleRoot.ToString().c_str());
+}
 /**
  * Build the genesis block. Note that the output of its generation
  * transaction cannot be spent since it did not originally exist in the
@@ -77,8 +114,8 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "RT.COM 08/May/2015 World marks WWII victory day";
-    const CScript genesisOutputScript = CScript() << ParseHex("04a31424abc548189ddce601561b2691d8b9b8551cc45522d06656b67ee062b84d4c6d6e142b05b87237b0e0ddadf9d6978bc0243def2210067c43890adbcb030d") << OP_CHECKSIG;
+    const char* pszTimestamp = "Wired 09 / Jan / 2019 Great project starts its work Now we create yrmix.";
+    const CScript genesisOutputScript = CScript() << ParseHex("046b7eb39ad92e8addaf7d707ba28825916278928e19e7467d185509ae727cc401c46706a12db89f756fa54ecf5622beb6f1fa51009db23479816b1f9370f2f757") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -138,7 +175,7 @@ public:
         consensus.nGovernanceFilterElements = 20000;
         consensus.nMasternodeMinimumConfirmations = 15;
         consensus.BIP34Height = 951;
-        consensus.BIP34Hash = uint256S("0x0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9");
+        consensus.BIP34Hash = uint256S("0x000000bfb893878abb4904e9370be68bea094366b8fec6b062cd027914a313c7");
         consensus.BIP65Height = 397152; // 00000000007f533c388f14f335132643d4cb53996959faa7e648341d8500c553
         consensus.BIP66Height = 951; // 0000025b0952dab1f52e080d07e7be699504fae8afa56933fd402ff0551173d9
         consensus.DIP0001Height = 710000; // Activate it on 27th November
@@ -151,7 +188,7 @@ public:
         consensus.nPowDGWHeight = 34140;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
+        /*consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
 
@@ -172,7 +209,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nStartTime = 1540632000; // Oct 27th, 2018
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nTimeout = 1572168000; // Oct 26th, 2019
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nWindowSize = 4032;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226; // 80% of 4032
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP147].nThreshold = 3226; // 80% of 4032*/
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000244f9127d33cdf52"); // 672000
@@ -185,38 +222,50 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xbf;
-        pchMessageStart[1] = 0x0c;
-        pchMessageStart[2] = 0x6b;
-        pchMessageStart[3] = 0xbd;
-        vAlertPubKey = ParseHex("046e165af8bee5294a27bfcec06d5828399d442761e4ebf4296c38d4dbe891e15dc16df5254347833dcfc1c2c1b8d5473ccdccac2896b4783f47fe53eb45c8ac8c");
-        nDefaultPort = 1945;
+        pchMessageStart[0] = 0xbc;
+        pchMessageStart[1] = 0x0b;
+        pchMessageStart[2] = 0x6d;
+        pchMessageStart[3] = 0xbc;
+        vAlertPubKey = ParseHex("0453e28bdb5a2afa3bd7a0d658f3cc7fc79cb755b069e74226d71bf948e09c2cc6bc7d0b9b314eace8dc4862d5d1f4246f8db442047f4a930bf008a18f946340f0");
+        nDefaultPort = 9998;
         nPruneAfterHeight = 100000;
+		startNewChain = false;
 
-        genesis = CreateGenesisBlock(1431122400, 1394136, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock( 1551666198, 59607, 0x1e0ffff0, 1, 50000 * COIN);
+		if(startNewChain == true) { MineGenesis(genesis, consensus.powLimit, true); }
+
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000c492bf73490420868bc577680bfc4c60116e7e85343bc624787c21efa4c"));
-        assert(genesis.hashMerkleRoot == uint256S("0x6a35812a1d2dd4ec413b7de5870c56455110ad6395ef00962e58f812da7cb4b9"));
 
-        vSeeds.push_back(CDNSSeedData("sibcoin.net", "dnsseed.sibcoin.net"));
+		if(!startNewChain) {
+        assert(consensus.hashGenesisBlock == uint256S("0x00000ff2ba1f5a7668626e70f0834947586a16a33373449a6ef5771a1209242f"));
+        assert(genesis.hashMerkleRoot == uint256S("0x16f433f0926b2341b50cbb9aeec50509e889bf3935ebedb24c45024b19eae141"));
+		}
+        
+        vSeeds.push_back(CDNSSeedData("yrmixcoin.net", "dnsseed.yrmixcoin.net"));
+        
+
+
+        /*
+        vSeeds.push_back(CDNSSeedData("yrmixcoin.net", "dnsseed.yrmixcoin.net"));
         vSeeds.push_back(CDNSSeedData("chervonec.info", "dnsseed.chervonec.info"));
         vSeeds.push_back(CDNSSeedData("darknode1", "dnsseed1.darknode.ru"));
         vSeeds.push_back(CDNSSeedData("darknode2", "dnsseed2.darknode.ru"));
-        vSeeds.push_back(CDNSSeedData("darknode3", "dnsseed3.darknode.ru"));
+        vSeeds.push_back(CDNSSeedData("darknode3", "dnsseed3.darknode.ru"));*/
 
-        // Sibcoin addresses start with 'S'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);
-        // Sibcoin script addresses start with 'H'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,40);
-        // Sibcoin private keys start with '5'
+
+        // Yrmixcoin addresses start with 'Y'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,78);
+        // Yrmixcoin script addresses start with '9'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,18);
+        // Yrmixcoin private keys start with '5'
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
-        // Sibcoin BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
+        // Yrmixcoin BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        // Sibcoin BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
+        // Yrmixcoin BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        // Sibcoin BIP44 coin type is '45'
-        nExtCoinType = 45;
+        // Yrmixcoin BIP44 coin type is '45'
+        //nExtCoinType = 45;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -230,39 +279,17 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
 
-        strSporkAddress = "SQUNxDdRbzqwP8rjcyiooKJwB3MxRRJc79";
+        strSporkAddress = "YdC4jyVMEFocweMzgGh3kxYe26c72xYwRr";
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S("0x00000c492bf73490420868bc577680bfc4c60116e7e85343bc624787c21efa4c"))
-            (  1000, uint256S("0x000004051b89a63d2ed190863a4333ff01aa27e65f1b4b7644e279d9d3587e07"))
-            (  5000, uint256S("0x0000013ce4f5d0a624391cda2e3fe5d7ced85603f51370563f9a27dbcc5c7f45"))
-            (  10000, uint256S("0x000000f59e97128ac36be3597142acdc0ae64e4b2d8d31cd990fd341d94c6782"))
-            (  15000, uint256S("0x0000008deaa8e017c246ef7ecebc4c9f24615691a19918379aad7170c32e19ef"))
-            (  20000, uint256S("0x0000001d2ff5a5fcf62191ed47ba73127f5884f7a53276cdfbc15afd65bd99d2"))
-            (  25000, uint256S("0x0000006774f19670a0e9e7dbd7ec380ff5b4d8d8130dae68bc9d4840e277973f"))
-            (  30000, uint256S("0x0000007f8622cde9424e5a7e9bd86aefe844b43e20343bcde69a7d3cb9cc640d"))
-            (  35000, uint256S("0x000000160f53facbb70193a3dac0357331520eb9e4fb544ac33a96b81c5ea890"))
-            (  38700, uint256S("0x0000000922c8ae23533c8aa6a4a22f51fa4cdfba85e8c08f2a019dcf755ec48f"))
-            (  70000, uint256S("0x00000000013eb4498b627e9b8cc1baf74f77f518be4f32ed27b6455e18f5295a")) 
-            (  80000, uint256S("0x0000000027d43f7c0323d29365f18c39666b8205a160d8a09f599f92ff259482"))
-            ( 116000, uint256S("0x0000000002850289e192660166b708ee7ebb44986c04f43c26a21607d77966cd"))
-            ( 180000, uint256S("0x00000000091a61016e9e3effdd3a98e6cfac3cb6e3ddda80f2545900abfb0540"))
-            ( 192200, uint256S("0x00000000068309e62ecddc6698872f231ff714ce123a7b2c944aa27b02a0e272"))
-            ( 230000, uint256S("0x000000000bdfc8cadad30c04551a22862db5b2b50a7a4f31bf250d1ae7e5adb1"))
-            ( 285000, uint256S("0x0000000015154aede63086af920588b23c0373ecd54cc2a6ce6a3b13716ccf54"))
-            ( 320120, uint256S("0x00000000005edc464fae36f0fc017180790b1b8ea4c47e22d14dac84397c3bdf"))
-            ( 382500, uint256S("0x000000000162cf9f60425d4d29878aa9405d20cc71498e9f3c376a9d603f73d1"))
-            ( 470000, uint256S("0x000000000072204721fb38827230766fdbc2eddd32cadf38b4823412f39a6e8a"))
-            ( 566000, uint256S("0x00000000000de0cba04663764024aa9a2d4c1d7521d21128cd9243bcb380d7e8"))
-            ( 637760, uint256S("0x000000000001f142d35353e50bd9364908e0e667fadf55b4c8ae35f2863d2ec9"))
-            ( 647000, uint256S("0x00000000000d3f6c21168be6a1ca0897dc61369b9d6268c4e63b9ef701d27ae7"))
-            ( 672000, uint256S("0x000000000006e6dca5c8a1e46caad2013efb1e8385d3a36fbbf95bb0742509f4"))
+            (  0, uint256S("0x00000ff2ba1f5a7668626e70f0834947586a16a33373449a6ef5771a1209242f"))
+            
         };
 
         chainTxData = ChainTxData{
-            1537273662, // * UNIX timestamp of last known number of transactions
-            1124680,    // * total number of transactions between genesis and that timestamp
+            1551666198, // * UNIX timestamp of last known number of transactions
+            0,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.1         // * estimated number of transactions per second after that timestamp
         };
@@ -296,7 +323,7 @@ public:
         consensus.BIP34Hash = uint256S("0x00000243719923dcc244bbb0e81bd5b03e3ce4fd3fe408358503ae5856ce3b40");
         consensus.BIP65Height = 66528; // 0000009d43b7778b3057c232afd3c7ce424a17adf8375b8b3ecc0578a4e0f272
         consensus.BIP66Height = 76; // 00000243719923dcc244bbb0e81bd5b03e3ce4fd3fe408358503ae5856ce3b40
-        consensus.DIP0001Height = 339400; // Not activated in sibcoin network yet, so set it to 1000 years in the future in this build
+        consensus.DIP0001Height = 339400; // Not activated in yrmixcoin network yet, so set it to 1000 years in the future in this build
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 24 * 60 * 60; // Sibcon: 1 day
         consensus.nPowTargetSpacing = 2.5 * 60; // Sibcon: 2.5 minutes
@@ -339,33 +366,47 @@ public:
         pchMessageStart[1] = 0xe2;
         pchMessageStart[2] = 0xca;
         pchMessageStart[3] = 0xff;
-        vAlertPubKey = ParseHex("041ce46b0192442eb3b504a18bcf70c088e25957c37613ab2fa9207df75387665ce939cb9c73daa3bf18f3c8ead430817c68dbc7e22e1545dd149faa408b7745ce");
-        nDefaultPort = 11945;
+        vAlertPubKey = ParseHex("043bec6261894ecea3d671546bd64fa66732b5d1d9015b89756f9e62fecc7e1f8fab1af728f2a493002341d710efefcb2a6b4bca49249eba1f6a4d011157f07b1b");
+        nDefaultPort = 19998;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1431129600UL, 2308058UL, 0x1e0ffff0, 1, 50 * COIN);
+/*
+		startNewChain = false;
+
+        genesis = CreateGenesisBlock( 1551666497, 519644, 0x1e0ffff0, 1, 50000 * COIN);
+		if(startNewChain == true) { MineGenesis(genesis, consensus.powLimit, true); }
+
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000617791d0e19f524387f67e558b2a928b670b9a3b387ae003ad7f9093017"));
-        assert(genesis.hashMerkleRoot == uint256S("0x6a35812a1d2dd4ec413b7de5870c56455110ad6395ef00962e58f812da7cb4b9"));
+
+		if(!startNewChain) {
+        assert(consensus.hashGenesisBlock == uint256S("0x00000ff2ba1f5a7668626e70f0834947586a16a33373449a6ef5771a1209242f"));
+        assert(genesis.hashMerkleRoot == uint256S("0x16f433f0926b2341b50cbb9aeec50509e889bf3935ebedb24c45024b19eae141"));
+		}*/
+		
+
+        genesis = CreateGenesisBlock(1551666497, 519644, 0x1e0ffff0, 1, 50000 * COIN);
+        consensus.hashGenesisBlock = genesis.GetHash();
+        assert(consensus.hashGenesisBlock == uint256S("0x00000f94fbaf6c5cc178fcfe5cea01e11a38ad553fa8112b5d78ced351a6d207"));
+        assert(genesis.hashMerkleRoot == uint256S("0x16f433f0926b2341b50cbb9aeec50509e889bf3935ebedb24c45024b19eae141"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("sibcoin.net", "testnetseed.sibcoin.net"));
+       // vSeeds.push_back(CDNSSeedData("yrmixcoin.net", "testnetseed.yrmixcoin.net"));
         //vSeeds.push_back(CDNSSeedData("masternode.io", "test.dnsseed.masternode.io"));
 
-        // Testnet Sibcoin addresses start with 's'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,125);
-        // Testnet Sibcoin script addresses start with 'h'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,100);
+        // Testnet Yrmixcoin addresses start with 's'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
+        // Testnet Yrmixcoin script addresses start with 'h'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet Sibcoin BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet Yrmixcoin BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Sibcoin BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Yrmixcoin BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Testnet Sibcoin BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Yrmixcoin BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         fMiningRequiresPeers = true;
@@ -378,24 +419,17 @@ public:
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        strSporkAddress = "sV4n6q5EeD1m2vtu7j3uNneXtrmATG9dPY";
+        strSporkAddress = "yYXwWXyHQu2D2e2iNCdjPa1VvcDDuFbVLc";
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256S("0x00000617791d0e19f524387f67e558b2a928b670b9a3b387ae003ad7f9093017"))
-            ( 1500, uint256S("0x0000031c5def292029d4713891fc26e5b4559aff101ce2cf6348418d028daf11"))
-            ( 5650, uint256S("0x000000131d2a832c254b06d37ee035a5a92d4266b3e489ed1ecb185e4f06ea0f"))
-            (36000, uint256S("0x00000052f0544f3bac8783fc7423bec0bfd129bf61bdcdd0d63efb2d06159fdf"))
-            (66500, uint256S("0x00000173bae72f2b196f494de1d68aa52a6345cf56f6e2553e560b203910ba4b"))
-            (124000, uint256S("0x000003a62774640efb599b2e542f318530d8258b49ac1fe644d5222ad3664db6"))
-            (215000, uint256S("0x00000000a50ef507c030e0cfdc5fde9048a3f530a8b59f1aa39c4c90e59ded14"))
-            (281300, uint256S("0x00000171a0345828a41ec12e28eccf74febc1de247c4f865a06bc563bcf4ddb2"))
-            (315000, uint256S("0x000000c752cac0d65096cde88731d0710969b187e1edbca18a86dd3baf0324db"))
+            ( 0, uint256S("0x00000f94fbaf6c5cc178fcfe5cea01e11a38ad553fa8112b5d78ced351a6d207"))
+            
             };
 
         chainTxData = ChainTxData{        
-            1537308700, // * UNIX timestamp of last known number of transactions
-            633944,    // * total number of transactions between genesis and that timestamp
+            1551666497, // * UNIX timestamp of last known number of transactions
+            0,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.01        // * estimated number of transactions per second after that timestamp
         };
@@ -473,10 +507,10 @@ public:
         pchMessageStart[2] = 0xff;
         pchMessageStart[3] = 0xce;
         vAlertPubKey = ParseHex("04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412");
-        nDefaultPort = 11945;
+        nDefaultPort = 19998;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1417713337, 1096447, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1551655975, 1096447, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x392f3a488077086748c0997c08aa197574dbd2ce17f67aa454cee54ce9e95d47"));
         assert(genesis.hashMerkleRoot == uint256S("0x6a35812a1d2dd4ec413b7de5870c56455110ad6395ef00962e58f812da7cb4b9"));
@@ -589,13 +623,26 @@ public:
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        nDefaultPort = 18333;
+        nDefaultPort = 18334;
         nPruneAfterHeight = 1000;
+/*		
+		startNewChain = true;
 
-        genesis = CreateGenesisBlock(1431129600, 2106393, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock( 1551666497, 519644, 0x207fffff, 1, 50 * COIN);
+		if(startNewChain == true) { MineGenesis(genesis, consensus.powLimit, true); }
+
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000007bfa2866f77d1f22f9da7fda73ea3c5185dc156f4f6f8b3a3caed27247e"));
-        //assert(genesis.hashMerkleRoot == uint256S("0xe0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7"));
+
+		if(!startNewChain) {
+        assert(consensus.hashGenesisBlock == uint256S("0x00000ff2ba1f5a7668626e70f0834947586a16a33373449a6ef5771a1209242f"));
+        assert(genesis.hashMerkleRoot == uint256S("0x16f433f0926b2341b50cbb9aeec50509e889bf3935ebedb24c45024b19eae141"));
+		}
+		
+*/
+        genesis = CreateGenesisBlock(1551667346, 0, 0x207fffff, 1, 50 * COIN);
+        consensus.hashGenesisBlock = genesis.GetHash();
+        assert(consensus.hashGenesisBlock == uint256S("0x04a84d7f3106ddf130f080974403fd20129172b3c1760624d10283b2c7c12c75"));
+        assert(genesis.hashMerkleRoot == uint256S("0x2e3875684e7dbaa1b97a91aad29f0a7c2633b2c9f81401a9ebd326a08b42489d"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -610,11 +657,11 @@ public:
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
         // privKey: cP4EKFyJsHT39LDqgdcB43Y3YXjNyjb5Fuas1GQSeAtjnZWmZEQK
-        strSporkAddress = "yj949n1UH6fDhw6HtVE5VMj2iSTaSWBMcW";
+        strSporkAddress = "yMqtP86XwYdkZTzy7xCw8tYnspxtQDemwu";
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
-            ( 0, uint256S("0x000007bfa2866f77d1f22f9da7fda73ea3c5185dc156f4f6f8b3a3caed27247e")),
+            ( 0, uint256S("0x04a84d7f3106ddf130f080974403fd20129172b3c1760624d10283b2c7c12c75")),
         };
 
         chainTxData = ChainTxData{
@@ -623,18 +670,18 @@ public:
             0
         };
 
-        // Regtest Sibcoin addresses start with 's'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,125);
-        // Regtest Sibcoin script addresses start with 'h'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,100);
+        // Regtest Yrmixcoin addresses start with 's'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
+        // Regtest Yrmixcoin script addresses start with 'h'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Regtest Sibcoin BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest Yrmixcoin BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Sibcoin BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest Yrmixcoin BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Regtest Sibcoin BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest Yrmixcoin BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
    }
 

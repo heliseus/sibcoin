@@ -9,6 +9,6 @@ Use the autogen script to prepare the build environment.
 
 Always verify the signatures and checksums.
 
-See doc/build-*.md for instructions on building sibcoind,
+See doc/build-*.md for instructions on building yrmixcoind,
 the intended-for-services, no-graphical-interface, reference
 implementation of SibCore.

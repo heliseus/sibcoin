@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven Sibcoin tests.
+Utilities to generate test vectors for the data-driven Yrmixcoin tests.
 
 Usage: 
 

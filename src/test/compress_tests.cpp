@@ -4,7 +4,7 @@
 
 #include "compressor.h"
 #include "util.h"
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #include <stdint.h>
 

@@ -41,9 +41,9 @@ SendCoinsEntry::SendCoinsEntry(const PlatformStyle *_platformStyle, QWidget *par
     ui->deleteButton_is->setIcon(QIcon(":/icons/" + theme + "/remove"));
     ui->deleteButton_s->setIcon(QIcon(":/icons/" + theme + "/remove"));
       
-    // normal sibcoin address field
+    // normal yrmixcoin address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying sibcoin address(es)
+    // just a label for displaying yrmixcoin address(es)
     ui->payTo_is->setFont(GUIUtil::fixedPitchFont());
 
     // Connect signals

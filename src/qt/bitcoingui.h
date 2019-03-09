@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #include "amount.h"
@@ -133,7 +133,7 @@ private:
     QAction *showHelpMessageAction;
     QAction *showPrivateSendHelpAction;
 
-    QAction *showHelpSibcoinAction;
+    QAction *showHelpYrmixcoinAction;
     
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
@@ -256,7 +256,7 @@ private Q_SLOTS:
     void showPeers();
     void showRepair();
 
-    /** Open external (default) editor with sibcoin.conf */
+    /** Open external (default) editor with yrmixcoin.conf */
     void showConfEditor();
     /** Open external (default) editor with masternode.conf */
     void showMNConfEditor();
@@ -267,7 +267,7 @@ private Q_SLOTS:
     void showHelpMessageClicked();
     /** Show PrivateSend help message dialog */
     void showPrivateSendHelpClicked();
-    void showHelpSibcoinClicked();
+    void showHelpYrmixcoinClicked();
 #ifndef Q_OS_MAC
     /** Handle tray icon clicked */
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);

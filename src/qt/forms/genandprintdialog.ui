@@ -115,7 +115,7 @@
         <string>&amp;Print</string>
        </property>
        <property name="icon">
-        <iconset resource="../sibcoin.qrc">
+        <iconset resource="../yrmixcoin.qrc">
          <normaloff>:/icons/qrcode</normaloff>:/icons/qrcode</iconset>
        </property>
       </widget>
@@ -142,7 +142,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../sibcoin.qrc"/>
+  <include location="../yrmixcoin.qrc"/>
  </resources>
  <connections>
   <connection>

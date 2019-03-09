@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin developers
 // Copyright (c) 2014-2018 The Dash developers
-// Copyright (c) 2015-2018 The SibCoin developers
+// Copyright (c) 2015-2018 The YrmixCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sibcoin-config.h"
+#include "config/yrmixcoin-config.h"
 #endif
 
 #include "intro.h"
@@ -216,8 +216,8 @@ bool Intro::pickDataDirectory()
         settings.setValue("strDataDirDefault", dataDirDefaultCurrent);
     }
     /* Only override -datadir if different from the default, to make it possible to
-     * override -datadir in the sibcoin.conf file in the default data directory
-     * (to be consistent with sibcoind behavior)
+     * override -datadir in the yrmixcoin.conf file in the default data directory
+     * (to be consistent with yrmixcoind behavior)
      */
     if(dataDir != dataDirDefaultCurrent)
         SoftSetArg("-datadir", GUIUtil::qstringToBoostPath(dataDir).string()); // use OS locale for path setting

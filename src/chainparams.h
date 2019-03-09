@@ -38,7 +38,7 @@ struct ChainTxData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * Sibcoin system. There are three: the main network on which people trade goods
+ * Yrmixcoin system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -101,6 +101,7 @@ protected:
     int nExtCoinType;
     std::string strNetworkID;
     CBlock genesis;
+	bool startNewChain;
     CBlock devnetGenesis;
     std::vector<SeedSpec6> vFixedSeeds;
     bool fMiningRequiresPeers;

@@ -12,7 +12,7 @@
 #include "script/sign.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #if defined(HAVE_CONSENSUS_LIB)
 #include "script/dashconsensus.h"

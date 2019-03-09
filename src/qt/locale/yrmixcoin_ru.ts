@@ -80,13 +80,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your Sibcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Это ваши адреса Sibcoin для отправки платежей. Всегда проверяйте количество и адрес получателя перед отправкой перевода.</translation>
+        <source>These are your Yrmixcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Это ваши адреса Yrmixcoin для отправки платежей. Всегда проверяйте количество и адрес получателя перед отправкой перевода.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your Sibcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Это ваши адреса Sibcoin для приёма платежей. Рекомендуется использовать новый адрес получения для каждой транзакции.</translation>
+        <source>These are your Yrmixcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Это ваши адреса Yrmixcoin для приёма платежей. Рекомендуется использовать новый адрес получения для каждой транзакции.</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -252,8 +252,8 @@
     </message>
     <message>
         <location line="+0"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SIBCOINS&lt;/b&gt;!</source>
-        <translation>Внимание: если Вы зашифруете кошелёк и потеряете пароль, вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ ВАШИ SIBCOIN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR YRMIXCOINS&lt;/b&gt;!</source>
+        <translation>Внимание: если Вы зашифруете кошелёк и потеряете пароль, вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ ВАШИ YRMIXCOIN&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -343,8 +343,8 @@
     <name>BitcoinGUI</name>
     <message>
         <location filename="../bitcoingui.cpp" line="+1189"/>
-        <source>Sibcoin Core</source>
-        <translation>Sibcoin Core</translation>
+        <source>Yrmixcoin Core</source>
+        <translation>Yrmixcoin Core</translation>
     </message>
     <message>
         <location line="-1042"/>
@@ -373,8 +373,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Send coins to a Sibcoin address</source>
-        <translation>Отправить монеты на указанный адрес Sibcoin</translation>
+        <source>Send coins to a Yrmixcoin address</source>
+        <translation>Отправить монеты на указанный адрес Yrmixcoin</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -383,8 +383,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Request payments (generates QR codes and sibcoin: URIs)</source>
-        <translation>Запросить платежи (создать QR-коды и sibcoin: URI)</translation>
+        <source>Request payments (generates QR codes and yrmixcoin: URIs)</source>
+        <translation>Запросить платежи (создать QR-коды и yrmixcoin: URI)</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -418,8 +418,8 @@
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about Sibcoin Core</source>
-        <translation>Показать информацию о Sibcoin Core</translation>
+        <source>Show information about Yrmixcoin Core</source>
+        <translation>Показать информацию о Yrmixcoin Core</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -448,7 +448,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Show links to services that accept sibcoins</source>
+        <source>Show links to services that accept yrmixcoins</source>
         <translation>Где принимают червонцы</translation>
     </message>
     <message>
@@ -518,8 +518,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Sign messages with your Sibcoin addresses to prove you own them</source>
-        <translation>Подписать сообщения вашими адресами Sibcoin, чтобы доказать, что вы ими владеете</translation>
+        <source>Sign messages with your Yrmixcoin addresses to prove you own them</source>
+        <translation>Подписать сообщения вашими адресами Yrmixcoin, чтобы доказать, что вы ими владеете</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -528,8 +528,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Verify messages to ensure they were signed with specified Sibcoin addresses</source>
-        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определёнными адресами Sibcoin</translation>
+        <source>Verify messages to ensure they were signed with specified Yrmixcoin addresses</source>
+        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определёнными адресами Yrmixcoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -633,7 +633,7 @@
     </message>
     <message>
         <location line="+2"/>
-        <source>&amp;Print sibcoins...</source>
+        <source>&amp;Print yrmixcoins...</source>
         <translation>&amp;Распечатать червонцы...</translation>
     </message>
     <message>
@@ -643,12 +643,12 @@
     </message>
     <message>
         <location line="+2"/>
-        <source>&amp;Load sibcoins...</source>
+        <source>&amp;Load yrmixcoins...</source>
         <translation>&amp;Загрузить червонцы...</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Load sibcoins from paper</source>
+        <source>Load yrmixcoins from paper</source>
         <translation>Загрузить червонцы с бумажного носителя</translation>
     </message>
     <message>
@@ -658,8 +658,8 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Open a sibcoin: URI or payment request</source>
-        <translation>Открыть sibcoin: URI или запрос платежа</translation>
+        <source>Open a yrmixcoin: URI or payment request</source>
+        <translation>Открыть yrmixcoin: URI или запрос платежа</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -668,7 +668,7 @@
     </message>
     <message>
         <location line="+2"/>
-        <source>Show the %1 help message to get a list with possible Sibcoin command-line options</source>
+        <source>Show the %1 help message to get a list with possible Yrmixcoin command-line options</source>
         <translation>Показать справку по %1 со списком возможных параметров командной строки</translation>
     </message>
     <message>
@@ -678,7 +678,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>How to use Sibcoins</source>
+        <source>How to use Yrmixcoins</source>
         <translation>Как пользоваться Червонцами</translation>
     </message>
     <message>
@@ -723,11 +723,11 @@
     </message>
     <message numerus="yes">
         <location line="+397"/>
-        <source>%n active connection(s) to Sibcoin network</source>
+        <source>%n active connection(s) to Yrmixcoin network</source>
         <translation>
-            <numerusform>%n активное соединение с сетью Sibcoin</numerusform>
-            <numerusform>%n активных соединения с сетью Sibcoin</numerusform>
-            <numerusform>%n активных соединений с сетью Sibcoin</numerusform>
+            <numerusform>%n активное соединение с сетью Yrmixcoin</numerusform>
+            <numerusform>%n активных соединения с сетью Yrmixcoin</numerusform>
+            <numerusform>%n активных соединений с сетью Yrmixcoin</numerusform>
         </translation>
     </message>
     <message>
@@ -1194,17 +1194,17 @@
     </message>
     <message>
         <location line="-29"/>
-        <source>PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Sibcoin&apos;s configuration screen.</source>
+        <source>PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Yrmixcoin&apos;s configuration screen.</source>
         <translation>PrivateSend успешно установлен в режим базовой приватности (%1 и 2 раунда). Вы можете изменить это в любое время, используя окно настроек.</translation>
     </message>
     <message>
         <location line="+15"/>
-        <source>PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Sibcoin&apos;s configuration screen.</source>
+        <source>PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Yrmixcoin&apos;s configuration screen.</source>
         <translation>PrivateSend успешно установлен в режим высокой приватности (%1 и 8 раундов). Вы можете изменить это в любое время, используя окно настроек.</translation>
     </message>
     <message>
         <location line="+15"/>
-        <source>PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Sibcoin&apos;s configuration screen.</source>
+        <source>PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Yrmixcoin&apos;s configuration screen.</source>
         <translation>PrivateSend успешно установлен в режим максимальной приватности (%1 и 16 раундов). Вы можете изменить это в любое время, используя окно настроек.</translation>
     </message>
 </context>
@@ -1257,8 +1257,8 @@
     </message>
     <message>
         <location line="+71"/>
-        <source>The entered address &quot;%1&quot; is not a valid Sibcoin address.</source>
-        <translation>Введённый адрес &quot;%1&quot; не является правильным адресом Sibcoin.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Yrmixcoin address.</source>
+        <translation>Введённый адрес &quot;%1&quot; не является правильным адресом Yrmixcoin.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1509,8 +1509,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+4"/>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Sibcoin in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.1 SIB, 1 SIB, 10 SIB and 100 SIB -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;http://sibcoin.org/privatesend&quot;&gt;http://sibcoin.org/privatesend&lt;/a&gt;         </source>
-        <translation>&lt;h3&gt;Основы PrivateSend&lt;/h3&gt;PrivateSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все червонцы в  Вашем кошельке состоят из различных &quot;&quot;входов&quot;, Вы можете думать о них как об отдельных монетах.&lt;br&gt;PrivateSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PrivateSend работает так:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.1 Ч, 1 Ч, 10 Ч и 100 Ч -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым &quot;мастернодами&quot;. Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отравляется, так что они не знают &quot;кто&quot; Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется &quot;раундом&quot;. С каждым раундом PrivateSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут анонимизированы. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PrivateSend не доступен. &lt;hr&gt;Дополнительная информация доступна по ссылке &lt;a href=&quot;http://sibcoin.org/privatesend&quot;&gt;http://sibcoin.org/privatesend&lt;/a&gt;</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Yrmixcoin in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.1 SIB, 1 SIB, 10 SIB and 100 SIB -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;http://yrmixcoin.org/privatesend&quot;&gt;http://yrmixcoin.org/privatesend&lt;/a&gt;         </source>
+        <translation>&lt;h3&gt;Основы PrivateSend&lt;/h3&gt;PrivateSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все червонцы в  Вашем кошельке состоят из различных &quot;&quot;входов&quot;, Вы можете думать о них как об отдельных монетах.&lt;br&gt;PrivateSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PrivateSend работает так:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.1 Ч, 1 Ч, 10 Ч и 100 Ч -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым &quot;мастернодами&quot;. Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отравляется, так что они не знают &quot;кто&quot; Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется &quot;раундом&quot;. С каждым раундом PrivateSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут анонимизированы. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PrivateSend не доступен. &lt;hr&gt;Дополнительная информация доступна по ссылке &lt;a href=&quot;http://yrmixcoin.org/privatesend&quot;&gt;http://yrmixcoin.org/privatesend&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -1532,7 +1532,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+10"/>
-        <source>%1 will download and store a copy of the Sibcoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>%1 will download and store a copy of the Yrmixcoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>%1 скачает и сохранит копию цепочки блоков. Как минимум %2ГБ данных будет храниться в этом каталоге и размер данных будет со временем расти. В этом же каталоге будет сохранён кошелёк.</translation>
     </message>
     <message>
@@ -1787,12 +1787,12 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+117"/>
-        <source>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Sibcoin network, as detailed below.</source>
-        <translation>Последние транзакции пока что могут быть не видны и поэтому ваш баланс может отображаться некорректно. Информация будет корректироваться по мере синхронизации с сетью Sibcoin, подробности о ходе синхронизации представлены ниже.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet&apos;s balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Yrmixcoin network, as detailed below.</source>
+        <translation>Последние транзакции пока что могут быть не видны и поэтому ваш баланс может отображаться некорректно. Информация будет корректироваться по мере синхронизации с сетью Yrmixcoin, подробности о ходе синхронизации представлены ниже.</translation>
     </message>
     <message>
         <location line="+19"/>
-        <source>Attempting to spend Sibcoin that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend Yrmixcoin that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Попытка потратить средства из ещё не отображённых транзакций будет отвергнута сетью.</translation>
     </message>
     <message>
@@ -1906,8 +1906,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+155"/>
-        <source>Amount of Sibcoin to keep anonymized</source>
-        <translation>Сумма постоянно анонимизированных Sibcoin</translation>
+        <source>Amount of Yrmixcoin to keep anonymized</source>
+        <translation>Сумма постоянно анонимизированных Yrmixcoin</translation>
     </message>
     <message>
         <location line="-119"/>
@@ -1981,8 +1981,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Sibcoin network through a SOCKS5 proxy.</source>
-        <translation>Подключаться к сети Sibcoin через прокси SOCKS5.</translation>
+        <source>Connect to the Yrmixcoin network through a SOCKS5 proxy.</source>
+        <translation>Подключаться к сети Yrmixcoin через прокси SOCKS5.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2042,7 +2042,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the Sibcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Yrmixcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Автоматически открыть порт для клиента &quot;Червонца&quot; на роутере. Работает только в том случае, если Ваш роутер поддерживает UPnP и данная функция включена.</translation>
     </message>
     <message>
@@ -2103,8 +2103,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+25"/>
-        <source>Connect to the Sibcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Подключаться к сети Sibcoin через отдельный прокси SOCKS5 для скрытых сервисов Tor.</translation>
+        <source>Connect to the Yrmixcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Подключаться к сети Yrmixcoin через отдельный прокси SOCKS5 для скрытых сервисов Tor.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2159,9 +2159,9 @@ p, li { white-space: pre-wrap; }
     <message>
         <location line="+21"/>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/sibcoin/</source>
+https://www.transifex.com/projects/p/yrmixcoin/</source>
         <translation>Нет Вашего языка или перевод неполон? Помогите нам сделать перевод лучше:
-https://www.transifex.com/projects/p/sibcoin/</translation>
+https://www.transifex.com/projects/p/yrmixcoin/</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -2261,8 +2261,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
         <location line="+53"/>
         <location line="+355"/>
         <location line="+258"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Sibcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Отображаемая информация может быть устаревшей. Ваш кошелёк автоматически синхронизируется с сетью Sibcoin после подключения, но этот процесс пока не завершён.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Yrmixcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Отображаемая информация может быть устаревшей. Ваш кошелёк автоматически синхронизируется с сетью Yrmixcoin после подключения, но этот процесс пока не завершён.</translation>
     </message>
     <message>
         <location line="-364"/>
@@ -2631,8 +2631,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="-402"/>
-        <source>Cannot start sibcoin: click-to-pay handler</source>
-        <translation>Не удаётся запустить обработчик sibcoin: click-to-pay</translation>
+        <source>Cannot start yrmixcoin: click-to-pay handler</source>
+        <translation>Не удаётся запустить обработчик yrmixcoin: click-to-pay</translation>
     </message>
     <message>
         <location line="+103"/>
@@ -2653,8 +2653,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+8"/>
-        <source>URI cannot be parsed! This can be caused by an invalid Sibcoin address or malformed URI parameters.</source>
-        <translation>Не удалось разобрать URI! Возможно указан некорректный адрес Sibcoin либо параметры URI сформированы неверно.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Yrmixcoin address or malformed URI parameters.</source>
+        <translation>Не удалось разобрать URI! Возможно указан некорректный адрес Yrmixcoin либо параметры URI сформированы неверно.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -2775,8 +2775,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location filename="../guiutil.cpp" line="+138"/>
-        <source>Enter a Sibcoin address (e.g. %1)</source>
-        <translation>Введите адрес Sibcoin (например, %1)</translation>
+        <source>Enter a Yrmixcoin address (e.g. %1)</source>
+        <translation>Введите адрес Yrmixcoin (например, %1)</translation>
     </message>
     <message>
         <location line="+859"/>
@@ -3465,8 +3465,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Sibcoin network.</source>
-        <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса. Обратите внимание: сообщение не будет отправлено вместе с платежом через сеть Sibcoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Yrmixcoin network.</source>
+        <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса. Обратите внимание: сообщение не будет отправлено вместе с платежом через сеть Yrmixcoin.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3481,8 +3481,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="-14"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Sibcoin network.</source>
-        <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса.&lt;br&gt;Обратите внимание: сообщение не будет отправлено вместе с платежом через сеть Sibcoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Yrmixcoin network.</source>
+        <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса.&lt;br&gt;Обратите внимание: сообщение не будет отправлено вместе с платежом через сеть Yrmixcoin.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3818,7 +3818,7 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     <message>
         <location line="+33"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for sibcoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for yrmixcoin transactions than the network can process.</source>
         <translation>Оплаты только минимальной комиссии должно быть достаточно во всех случаях, пока в блоках достаточно места.&lt;br&gt;Однако, будьте готовы к тому, что транзакция может вовсе не получить подтверждения,&lt;br&gt;если количество транзакций будет стабильно больше, чем сеть способна обработать.</translation>
     </message>
     <message>
@@ -4067,8 +4067,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+103"/>
-        <source>Warning: Invalid Sibcoin address</source>
-        <translation>Внимание: неверный адрес Sibcoin</translation>
+        <source>Warning: Invalid Yrmixcoin address</source>
+        <translation>Внимание: неверный адрес Yrmixcoin</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -4149,8 +4149,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="-1054"/>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Sibcoin than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Комиссия будет вычтена из отправляемой суммы. Получателю придет меньше Sibcoin, сем указано в поле &quot;Сумма&quot;. Если указано несколько получателей, то комиссия будет разделена между ними поровну.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Yrmixcoin than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Комиссия будет вычтена из отправляемой суммы. Получателю придет меньше Yrmixcoin, сем указано в поле &quot;Сумма&quot;. Если указано несколько получателей, то комиссия будет разделена между ними поровну.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4164,8 +4164,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>A message that was attached to the sibcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Sibcoin network.</source>
-        <translation>К sibcoin: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Обратите внимание: сообщение не будет отправлено через сеть Sibcoin.</translation>
+        <source>A message that was attached to the yrmixcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Yrmixcoin network.</source>
+        <translation>К yrmixcoin: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Обратите внимание: сообщение не будет отправлено через сеть Yrmixcoin.</translation>
     </message>
     <message>
         <location line="+433"/>
@@ -4236,8 +4236,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>You can sign messages/agreements with your addresses to prove you can receive Sibcoin sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Вы можете подписывать сообщения своими адресами, чтобы доказать, что Вы можете получать Sibcoin на них. Будьте осторожны, не подписывайте что-то неопределённое, так как фишинговые атаки могут обманным путём заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Yrmixcoin sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Вы можете подписывать сообщения своими адресами, чтобы доказать, что Вы можете получать Yrmixcoin на них. Будьте осторожны, не подписывайте что-то неопределённое, так как фишинговые атаки могут обманным путём заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -4283,8 +4283,8 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Sibcoin address</source>
-        <translation>Подписать сообщение, чтобы доказать владение этим адресом Sibcoin</translation>
+        <source>Sign the message to prove you own this Yrmixcoin address</source>
+        <translation>Подписать сообщение, чтобы доказать владение этим адресом Yrmixcoin</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4314,13 +4314,13 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>The Sibcoin address the message was signed with (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</source>
+        <source>The Yrmixcoin address the message was signed with (e.g. SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</source>
         <translation>Адрес, которым было подписано сообщение (например, SiBjNTJZQqn6V1RtyVu2friaJMij1dHpm4)</translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>Verify the message to ensure it was signed with the specified Sibcoin address</source>
-        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Sibcoin</translation>
+        <source>Verify the message to ensure it was signed with the specified Yrmixcoin address</source>
+        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Yrmixcoin</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -5185,16 +5185,16 @@ https://www.transifex.com/projects/p/sibcoin/</translation>
     </message>
     <message>
         <location line="+64"/>
-        <source>Before sending sibcoins to address please be sure
+        <source>Before sending yrmixcoins to address please be sure
 that paper wallet has been printed successfully!</source>
         <translation>Перед переводом червонцев на сгенерированный адрес убедитесь,
 что бумажный кошелек успешно распечатан!</translation>
     </message>
 </context>
 <context>
-    <name>sibcoin-core</name>
+    <name>yrmixcoin-core</name>
     <message>
-        <location filename="../sibcoinstrings.cpp" line="+33"/>
+        <location filename="../yrmixcoinstrings.cpp" line="+33"/>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>Привязаться к указанному адресу и всегда прослушивать только его. Используйте [хост]:порт для IPv6</translation>
     </message>
@@ -5960,8 +5960,8 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <location line="-385"/>
-        <source>Disable all Sibcoin specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Отключить всю функциональность, относящуюся к Sibcoin (Мастерноды, PrivateSend, InstantSend, Governance) (0-1, по умолчанию: %u)</translation>
+        <source>Disable all Yrmixcoin specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
+        <translation>Отключить всю функциональность, относящуюся к Yrmixcoin (Мастерноды, PrivateSend, InstantSend, Governance) (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6140,7 +6140,7 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <location line="+16"/>
-        <source>You are starting in lite mode, all Sibcoin-specific functionality is disabled.</source>
+        <source>You are starting in lite mode, all Yrmixcoin-specific functionality is disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6560,8 +6560,8 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <location line="-484"/>
-        <source>Sibcoin Core</source>
-        <translation>Sibcoin Core</translation>
+        <source>Yrmixcoin Core</source>
+        <translation>Yrmixcoin Core</translation>
     </message>
     <message>
         <location line="+1"/>

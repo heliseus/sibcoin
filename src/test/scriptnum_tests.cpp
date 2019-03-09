@@ -4,7 +4,7 @@
 
 #include "scriptnum10.h"
 #include "script/script.h"
-#include "test/test_sibcoin.h"
+#include "test/test_yrmixcoin.h"
 
 #include <boost/test/unit_test.hpp>
 #include <limits.h>
