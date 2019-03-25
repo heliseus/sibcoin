@@ -126,7 +126,7 @@ QT_TRANSLATE_NOOP("yrmixcoin-core", ""
 "specified?"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", ""
 "InstantSend doesn't support sending values that high yet. Transactions are "
-"currently limited to %1 SIB."),
+"currently limited to %1 YRM."),
 QT_TRANSLATE_NOOP("yrmixcoin-core", ""
 "InstantSend requires inputs with at least %d confirmations, you might need "
 "to wait a few minutes and try again."),
@@ -435,7 +435,7 @@ QT_TRANSLATE_NOOP("yrmixcoin-core", "Invalid script detected."),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "Invalid spork address specified with -sporkaddr"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "KeePassHttp id for the established association"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "KeePassHttp key for AES encrypted communication with KeePass"),
-QT_TRANSLATE_NOOP("yrmixcoin-core", "Keep N SIB anonymized (%u-%u, default: %u)"),
+QT_TRANSLATE_NOOP("yrmixcoin-core", "Keep N YRM anonymized (%u-%u, default: %u)"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "Keep the transaction memory pool below <n> megabytes (default: %u)"),
 QT_TRANSLATE_NOOP("yrmixcoin-core", "Keypool ran out, please call keypoolrefill first"),

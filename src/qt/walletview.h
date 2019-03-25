@@ -137,7 +137,7 @@ public Q_SLOTS:
     void requestedSyncWarningInfo();
 
 
-    /** Update selected SIB amount from transactionview */
+    /** Update selected YRM amount from transactionview */
     void trxAmount(QString amount);
 
 Q_SIGNALS:

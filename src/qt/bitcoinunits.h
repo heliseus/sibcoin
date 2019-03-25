@@ -58,10 +58,10 @@ public:
      */
     enum Unit
     {
-        SIB,
-        mSIB,
-        uSIB,
-        ivans
+        YRM,
+        mYRM,
+        uYRM,
+        yrmix
     };
 
     enum SeparatorStyle

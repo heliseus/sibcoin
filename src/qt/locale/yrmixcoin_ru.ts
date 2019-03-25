@@ -1152,28 +1152,28 @@
     </message>
     <message>
         <location line="+13"/>
-        <source>Use 2 separate masternodes to mix funds up to 1000 SIB</source>
-        <translation>Использовать 2 отдельных мастерноды для перемешивания средств вплоть до 1000 червонцев</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 YRM</source>
+        <translation>Использовать 2 отдельных мастерноды для перемешивания средств вплоть до 1000 yrmixcoin</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>Use 8 separate masternodes to mix funds up to 1000 SIB</source>
-        <translation>Использовать 8 отдельных мастерноды для перемешивания средств вплоть до 1000 червонцев</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 YRM</source>
+        <translation>Использовать 8 отдельных мастерноды для перемешивания средств вплоть до 1000 yrmixcoin</translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>This option is the quickest and will cost about ~0.025 SIB to anonymize 1000 SIB</source>
-        <translation>Эта опция наиболее быстрая и будет стоить примерно ~0.025 SIB для анонимизации 1000 SIB</translation>
+        <source>This option is the quickest and will cost about ~0.025 YRM to anonymize 1000 YRM</source>
+        <translation>Эта опция наиболее быстрая и будет стоить примерно ~0.025 YRM для анонимизации 1000 YRM</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>This option is moderately fast and will cost about 0.05 SIB to anonymize 1000 SIB</source>
-        <translation>Эта опция более быстрая и будет стоить примерно ~0.05 SIB для анонимизации 1000 SIB</translation>
+        <source>This option is moderately fast and will cost about 0.05 YRM to anonymize 1000 YRM</source>
+        <translation>Эта опция более быстрая и будет стоить примерно ~0.05 YRM для анонимизации 1000 YRM</translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>0.1 SIB per 1000 SIB you anonymize.</source>
-        <translation>0.1 SIB для анонимизации 1000 SIB.</translation>
+        <source>0.1 YRM per 1000 YRM you anonymize.</source>
+        <translation>0.1 YRM для анонимизации 1000 YRM.</translation>
     </message>
     <message>
         <location line="-52"/>
@@ -1509,7 +1509,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+4"/>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Yrmixcoin in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.1 SIB, 1 SIB, 10 SIB and 100 SIB -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;http://yrmixcoin.org/privatesend&quot;&gt;http://yrmixcoin.org/privatesend&lt;/a&gt;         </source>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Yrmixcoin in your wallet is comprised of different &quot;inputs&quot; which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.1 YRM, 1 YRM, 10 YRM and 100 YRM -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called &quot;masternodes.&quot; These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know &quot;who&quot; you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users&apos; wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it&apos;s called a &quot;round.&quot; Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these &quot;change addresses.&quot; Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href=&quot;http://yrmixcoin.org/privatesend&quot;&gt;http://yrmixcoin.org/privatesend&lt;/a&gt;         </source>
         <translation>&lt;h3&gt;Основы PrivateSend&lt;/h3&gt;PrivateSend позволяет Вам получить настоящую финансовую конфиденциальность за счет скрытия источников Ваших средств. Все червонцы в  Вашем кошельке состоят из различных &quot;&quot;входов&quot;, Вы можете думать о них как об отдельных монетах.&lt;br&gt;PrivateSend использует инновационный процесс для перемешивания Ваших входов со входами еще двоих человек, но при этом Ваши монеты никогда не покидают Ваш кошелек. Вы сохраняете контроль над Вашими деньгами на протяжении всего времени.&lt;hr&gt; &lt;b&gt;PrivateSend работает так:&lt;/b&gt;&lt;ol type=&quot;1&quot;&gt; &lt;li&gt;PrivateSend начинается с разбиения Ваших входов транзакций на стандартные номиналы. Такими номиналами являются 0.1 Ч, 1 Ч, 10 Ч и 100 Ч -- что-то вроде купюр, которыми вы пользуетесь каждый день.&lt;/li&gt; &lt;li&gt;Ваш кошелек затем отправляет запросы к особым образом настроенным сетевым узлам, называемым &quot;мастернодами&quot;. Эти мастерноды знают только то, что Вы хотите перемешать определенные номиналы. Никакой идентифицирующей информации мастернодам не отравляется, так что они не знают &quot;кто&quot; Вы конкретно.&lt;/li&gt; &lt;li&gt;Сессия перемешивания начинается тогда, когда еще двое человек отправляют схожее сообщение, подтверждающее, что они хотят перемешать точно такой же номинал. Мастернода перемешивает входы и просит кошельки всех пользователей осуществить платежи по ним. Ваш кошелек осуществляет выплату самому себе, но на другой адрес (тоже из вашего кошелька).&lt;/li&gt; &lt;li&gt;Для скрытия Ваших средств кошелек должен повторить этот процесс несколько раз с каждым номиналом. Каждый раз, когда такой процесс завершается, называется &quot;раундом&quot;. С каждым раундом PrivateSend становится экспоненциально сложнее определить откуда поступили средства.&lt;/li&gt; &lt;li&gt;Процесс перемешивания выполняется в фоне, без участия пользователя. Когда Вы захотите провести транзакцию, средства уже будут анонимизированы. Дополнительно ждать не требуется.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;ВАЖНО:&lt;/b&gt; Ваш кошелек содержит 1000 адресов. Каждое перемешивание использует до 9 из этих адресов. Это означает, что 1000 адресов хватит примерно на 100 перемешиваний. Когда 900 адресов будут уже использованы, Ваш кошелек должен создать новые адреса. Однако, он может сделать это, только если у Вас включены автоматические резервные копии.&lt;br&gt;Соответственно, пользователям с отключенным резервным копированием PrivateSend не доступен. &lt;hr&gt;Дополнительная информация доступна по ссылке &lt;a href=&quot;http://yrmixcoin.org/privatesend&quot;&gt;http://yrmixcoin.org/privatesend&lt;/a&gt;</translation>
     </message>
 </context>
@@ -2368,8 +2368,8 @@ https://www.transifex.com/projects/p/yrmixcoin/</translation>
     </message>
     <message>
         <location line="+47"/>
-        <source>0 SIB / 0 Rounds</source>
-        <translation>0 червонцев / 0 раундов</translation>
+        <source>0 YRM / 0 Rounds</source>
+        <translation>0 yrmixcoin / 0 раундов</translation>
     </message>
     <message>
         <location line="+62"/>
@@ -5122,13 +5122,13 @@ https://www.transifex.com/projects/p/yrmixcoin/</translation>
         <location line="+5"/>
         <location line="+11"/>
         <source>Send Coins</source>
-        <translation>Отправка червонцев</translation>
+        <translation>Отправка yrmixcoin</translation>
     </message>
     <message>
         <location line="-28"/>
         <location line="+12"/>
-        <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 SIB.</source>
-        <translation>InstantSend пока что не поддерживает такие большие суммы. На данный момент транзакции ограничены суммами до %1 SIB.</translation>
+        <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 YRM.</source>
+        <translation>InstantSend пока что не поддерживает такие большие суммы. На данный момент транзакции ограничены суммами до %1 YRM.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -5187,7 +5187,7 @@ https://www.transifex.com/projects/p/yrmixcoin/</translation>
         <location line="+64"/>
         <source>Before sending yrmixcoins to address please be sure
 that paper wallet has been printed successfully!</source>
-        <translation>Перед переводом червонцев на сгенерированный адрес убедитесь,
+        <translation>Перед переводом yrmixcoin на сгенерированный адрес убедитесь,
 что бумажный кошелек успешно распечатан!</translation>
     </message>
 </context>
@@ -5225,8 +5225,8 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <location line="+34"/>
-        <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 SIB.</source>
-        <translation>InstantSend пока что не поддерживает такие большие суммы. На данный момент транзакции ограничены суммами до %1 SIB.</translation>
+        <source>InstantSend doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 YRM.</source>
+        <translation>InstantSend пока что не поддерживает такие большие суммы. На данный момент транзакции ограничены суммами до %1 YRM.</translation>
     </message>
     <message>
         <location line="+37"/>
@@ -6280,7 +6280,7 @@ that paper wallet has been printed successfully!</source>
     </message>
     <message>
         <location line="+8"/>
-        <source>Keep N SIB anonymized (%u-%u, default: %u)</source>
+        <source>Keep N YRM anonymized (%u-%u, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
