@@ -86,7 +86,10 @@ QString BitcoinUnits::description(int unit)
             case YRM: return QString("TestYrms");
             case mYRM: return QString("Milli-TestYrm (1 / 1,000)");
             case uYRM: return QString("Micro-TestYrm (1 / 1,000,000)");
-            case yrmix: return QString("Ten Nano-TestYrm
+            case ivans: return QString("Ten Nano-TestYrm (1 / 100,000,000)");
+            default: return QString("???");
+        }
+    }
 }
 
 qint64 BitcoinUnits::factor(int unit)

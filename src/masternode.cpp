@@ -554,7 +554,7 @@ bool CMasternodeBroadcast::CheckOutpoint(int& nDos)
     }
 
     if (err == COLLATERAL_INVALID_AMOUNT) {
-        LogPrint("masternode", "CMasternodeBroadcast::CheckOutpoint -- Masternode UTXO should have %s SIB, masternode=%s\n", MASTERNODE_COLLATERAL_AMOUNT, outpoint.ToStringShort());
+        LogPrint("masternode", "CMasternodeBroadcast::CheckOutpoint -- Masternode UTXO should have %s YRM, masternode=%s\n", MASTERNODE_COLLATERAL_AMOUNT, outpoint.ToStringShort());
         nDos = 33;
         return false;
     }

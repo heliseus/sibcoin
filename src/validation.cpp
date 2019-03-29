@@ -3548,7 +3548,7 @@ static bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state
         if (fCheckpointsEnabled && !CheckIndexAgainstCheckpoint(pindexPrev, state, chainparams, hash))
             return error("%s: CheckIndexAgainstCheckpoint(): %s", __func__, state.GetRejectReason().c_str());
 
-        // SIB specific
+        // YRM specific
         if (sporkManager.IsSporkActive(SPORK_15_REJECT_OLD_BLOCKS)) {
             if ( chainActive.Height() - pindexPrev->nHeight > SPORK_15_REJECT_NUMBER) {
                 return state.Invalid(error("CheckBlockHeader(): block height is too far in the past"),
